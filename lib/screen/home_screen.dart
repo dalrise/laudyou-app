@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflex/model/model_movie.dart';
+import 'package:netflex/widget/carousel_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,7 +19,26 @@ class _HomeScreenState extends State<HomeScreen> {
     Movie.formMap({
       'title': '블랙 위도우',
       'keyword': '사랑/로맨스/판타지',
-      'poster': 'test_movie1.jpg'
+      'poster': 'test_movie1.jpg',
+      'like': false
+    }),
+    Movie.formMap({
+      'title': '블랙 위도우',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie1.jpg',
+      'like': false
+    }),
+    Movie.formMap({
+      'title': '블랙 위도우',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie1.jpg',
+      'like': false
+    }),
+    Movie.formMap({
+      'title': '블랙 위도우',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie1.jpg',
+      'like': false
     })
   ];
   @override
@@ -28,7 +48,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return TopBar();
+    return ListView(
+      children: [
+        Stack(
+          children: [
+            CarouselImage(movies: movies),
+            TopBar(),
+          ],
+        )
+      ],
+    );
   }
 }
 
