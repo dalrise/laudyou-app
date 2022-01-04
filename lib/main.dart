@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflex/screen/home_screen.dart';
+import 'package:netflex/screen/more_screen.dart';
 import 'package:netflex/widget/bottom_bar.dart';
 
 void main() {
@@ -24,16 +25,20 @@ class _MyAppState extends State<MyApp> {
       home: DefaultTabController(
         length: 4,
         child: Scaffold(
-            body: TabBarView(
-              physics: NeverScrollableScrollPhysics(),
-              children: <Widget>[
-                HomeScreen(),
-                Container(child: Center(child: Text("search")),),
-                Container(child: Center(child: Text("save")),),
-                Container(child: Center(child: Text("more")),),
-              ],
-        ),
-        bottomNavigationBar: BottomBar(),
+          body: TabBarView(
+            physics: NeverScrollableScrollPhysics(),
+            children: <Widget>[
+              HomeScreen(),
+              Container(
+                child: Center(child: Text("search")),
+              ),
+              Container(
+                child: Center(child: Text("save")),
+              ),
+              MoreScreen(),
+            ],
+          ),
+          bottomNavigationBar: BottomBar(),
         ),
       ),
     );

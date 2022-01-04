@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflex/model/model_movie.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:netflex/screen/detail_screen.dart';
 
 class CarouselImage extends StatefulWidget {
   //const CarouselImage({Key? key}) : super(key: key);
@@ -37,11 +38,11 @@ class _CarouselImageState extends State<CarouselImage> {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(30),
           ),
           CarouselSlider(
             options: CarouselOptions(
-                height: 400.0,
+                height: 200.0,
                 onPageChanged: (index, reason) {
                   setState(() {
                     _currentPage = index;
@@ -65,9 +66,13 @@ class _CarouselImageState extends State<CarouselImage> {
                   child: Column(
                     children: [
                       likes[_currentPage]
-                      ? IconButton(onPressed: () {}, icon: Icon(Icons.check))
+                          ? IconButton(
+                              onPressed: () {}, icon: Icon(Icons.check))
                           : IconButton(onPressed: () {}, icon: Icon(Icons.add)),
-                      Text("내가 찜한 콘텐츠", style: TextStyle(fontSize: 11),)
+                      Text(
+                        "내가 찜한 콘텐츠",
+                        style: TextStyle(fontSize: 11),
+                      )
                     ],
                   ),
                 ),
@@ -81,9 +86,17 @@ class _CarouselImageState extends State<CarouselImage> {
                     onPressed: () {},
                     child: Row(
                       children: [
-                        Icon(Icons.play_arrow, color: Colors.black,),
-                        Padding(padding: EdgeInsets.all(3),),
-                        Text("재생", style: TextStyle(color: Colors.black),)
+                        Icon(
+                          Icons.play_arrow,
+                          color: Colors.black,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(3),
+                        ),
+                        Text(
+                          "재생",
+                          style: TextStyle(color: Colors.black),
+                        )
                       ],
                     ),
                   ),
@@ -92,8 +105,22 @@ class _CarouselImageState extends State<CarouselImage> {
                   padding: EdgeInsets.only(right: 10),
                   child: Column(
                     children: [
-                      IconButton(onPressed: () {}, icon: Icon(Icons.info)),
-                      Text("정보", style: TextStyle(fontSize: 11),)
+                      IconButton(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  fullscreenDialog: true,
+                                  builder: (BuildContext context) {
+                                    return DetailScreen(
+                                        movie: movies[_currentPage]);
+                                  }),
+                            );
+                          },
+                          icon: Icon(Icons.info)),
+                      Text(
+                        "정보",
+                        style: TextStyle(fontSize: 11),
+                      )
                     ],
                   ),
                 )
@@ -121,10 +148,9 @@ List<Widget> makeIndicator(List list, int _currentPage) {
       margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
       decoration: BoxDecoration(
           shape: BoxShape.circle,
-        color: _currentPage == i
-          ? Color.fromRGBO(255, 255, 255, 0.9)
-            : Color.fromRGBO(255, 255, 255, 0.4)
-      ),
+          color: _currentPage == i
+              ? Color.fromRGBO(255, 255, 255, 0.9)
+              : Color.fromRGBO(255, 255, 255, 0.4)),
     ));
   }
 

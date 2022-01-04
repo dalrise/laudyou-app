@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:netflex/model/model_movie.dart';
+import 'package:netflex/widget/box_slider.dart';
 import 'package:netflex/widget/carousel_slider.dart';
+import 'package:netflex/widget/circle_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,27 +19,27 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Movie> movies = [
     Movie.formMap({
-      'title': '블랙 위도우',
+      'title': '블랙 위도우1',
       'keyword': '사랑/로맨스/판타지',
       'poster': 'test_movie1.jpg',
       'like': false
     }),
     Movie.formMap({
-      'title': '블랙 위도우',
+      'title': '블랙 위도우2',
       'keyword': '사랑/로맨스/판타지',
-      'poster': 'test_movie1.jpg',
+      'poster': 'test_movie2.jpeg',
       'like': false
     }),
     Movie.formMap({
-      'title': '블랙 위도우',
+      'title': '블랙 위도우3',
       'keyword': '사랑/로맨스/판타지',
-      'poster': 'test_movie1.jpg',
+      'poster': 'test_movie3.jpg',
       'like': false
     }),
     Movie.formMap({
-      'title': '블랙 위도우',
+      'title': '블랙 위도우4',
       'keyword': '사랑/로맨스/판타지',
-      'poster': 'test_movie1.jpg',
+      'poster': 'test_movie4.jpeg',
       'like': false
     })
   ];
@@ -55,7 +57,9 @@ class _HomeScreenState extends State<HomeScreen> {
             CarouselImage(movies: movies),
             TopBar(),
           ],
-        )
+        ),
+        CircleSlider(movies: movies),
+        BoxSlider(movies: movies),
       ],
     );
   }

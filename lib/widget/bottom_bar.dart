@@ -25,14 +25,14 @@ class BottomBar extends StatelessWidget {
               icon: Icon(
                   Icons.search, size: 18
               ),
-              child: Text('검', style: TextStyle(fontSize: 9),
+              child: Text('검색', style: TextStyle(fontSize: 9),
               ),
             ),
             Tab(
               icon: Icon(
                   Icons.save, size: 18
               ),
-              child: Text('저장한 컨턴츠 목록', style: TextStyle(fontSize: 9),
+              child: Text('저장한 컨턴츠', style: TextStyle(fontSize: 9),
               ),
             ),
             Tab(
