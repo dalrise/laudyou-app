@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:netflex/model/model_movie.dart';
+import 'package:netflex/models/model_movie.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:netflex/screen/detail_screen.dart';
+import 'package:get/get.dart';
 
 class CarouselImage extends StatefulWidget {
   //const CarouselImage({Key? key}) : super(key: key);
@@ -107,14 +108,17 @@ class _CarouselImageState extends State<CarouselImage> {
                     children: [
                       IconButton(
                           onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  fullscreenDialog: true,
-                                  builder: (BuildContext context) {
-                                    return DetailScreen(
-                                        movie: movies[_currentPage]);
-                                  }),
-                            );
+                            Get.to(DetailScreen(
+                              movie: movies[_currentPage],
+                            ));
+                            // Navigator.of(context).push(
+                            //   MaterialPageRoute(
+                            //       fullscreenDialog: true,
+                            //       builder: (BuildContext context) {
+                            //         return DetailScreen(
+                            //             movie: movies[_currentPage]);
+                            //       }),
+                            // );
                           },
                           icon: Icon(Icons.info)),
                       Text(

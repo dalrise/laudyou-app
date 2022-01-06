@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflex/model/model_movie.dart';
+import 'package:netflex/models/model_movie.dart';
 import "dart:ui";
 
 class DetailScreen extends StatefulWidget {

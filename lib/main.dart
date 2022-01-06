@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:netflex/screen/HomeGetScreen.dart';
 import 'package:netflex/screen/home_screen.dart';
 import 'package:netflex/screen/more_screen.dart';
 import 'package:netflex/widget/bottom_bar.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +18,15 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      // Remove the debug banner
+      debugShowCheckedModeBanner: false,
+      title: 'GetX Status',
+      home: HomeGetScreen(),
+    );
+
+    /*
+    return GetMaterialApp(
       title: "JoFlix",
       theme: ThemeData(
           brightness: Brightness.dark,
@@ -42,5 +52,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
+
+     */
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflex/model/model_movie.dart';
+import 'package:netflex/models/model_movie.dart';
 import 'package:netflex/widget/box_slider.dart';
 import 'package:netflex/widget/carousel_slider.dart';
 import 'package:netflex/widget/circle_slider.dart';
