@@ -20,7 +20,28 @@ class BottomBar extends StatelessWidget {
                   '홈',
                   style: TextStyle(fontSize: 9),
                 ),
-              )
+              ),
+              Tab(
+                icon: Icon(Icons.add_chart, size: 18),
+                child: Text(
+                  '통계',
+                  style: TextStyle(fontSize: 9),
+                ),
+              ),
+              Tab(
+                icon: Icon(Icons.app_blocking, size: 18),
+                child: Text(
+                  '제어',
+                  style: TextStyle(fontSize: 9),
+                ),
+              ),
+              Tab(
+                icon: Icon(Icons.manage_accounts, size: 18),
+                child: Text(
+                  '제어',
+                  style: TextStyle(fontSize: 9),
+                ),
+              ),
             ]),
       ),
     );
