@@ -1,30 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laudyou_app/page/guide_home_page.dart';
-import 'package:laudyou_app/page/main_home_page.dart';
-import 'dart:async';
 
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:laudyou_app/page/post/home_page.dart';
+import 'package:laudyou_app/page/user/join_page.dart';
+import 'package:laudyou_app/page/user/login_page.dart';
 
-Future<bool> read_firstinstall() async {
-  final prefs = await SharedPreferences.getInstance();
-  var value = prefs.getBool("firstinstall") ?? false;
-
-  return value;
+void main() {
+  runApp(const MyApp());
 }
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-  var first = await read_firstinstall();
-  runApp(
-    GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'LaudYou Service',
-        home: (first
-            ? const MainHomePage(title: '메인 화면')
-            : const GuideHomePage(
-                title: 'LaudYou 처음 사용자용 Guide Page',
-              ))),
-  );
+  @override
+  Widget build(BuildContext context) {
+    return const GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LoginPage(),
+    );
+  }
 }
