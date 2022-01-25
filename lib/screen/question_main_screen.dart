@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:laudyou_app/controller/question_controller.dart';
 
 class QuestionMainScreen extends StatelessWidget {
-  const QuestionMainScreen({Key? key}) : super(key: key);
+  QuestionMainScreen({Key? key}) : super(key: key);
+  final QuestionController _controller = Get.put(QuestionController());
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +15,9 @@ class QuestionMainScreen extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Row(children: [
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  _controller.load();
+                },
                 child: _buildQuestionItem(Icons.emoji_symbols, "수학")),
             _buildQuestionItem(Icons.emoji_symbols, "영어"),
             _buildQuestionItem(Icons.emoji_symbols, "사자성어"),

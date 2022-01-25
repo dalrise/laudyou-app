@@ -38,7 +38,7 @@ class MainHomePage extends StatelessWidget {
         bottomNavigationBar: const BottomBar(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Get.to(const QuestionMainScreen());
+            Get.to(QuestionMainScreen());
           },
           tooltip: '문제 풀기',
           child: const Icon(
