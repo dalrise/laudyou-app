@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:laudyou_app/utils/validator_util.dart';
+import 'package:validators/validators.dart';
+
 import 'package:laudyou_app/components/custom_elevated_button.dart';
 import 'package:laudyou_app/components/custom_text_form_filed.dart';
+import 'package:laudyou_app/page/post/home_page.dart';
+
+import 'login_page.dart';
 
 class JoinPage extends StatelessWidget {
-  const JoinPage({Key? key}) : super(key: key);
+  //JoinPage();
+  JoinPage({Key? key}) : super(key: key);
+
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +31,12 @@ class JoinPage extends StatelessWidget {
               ),
             ),
             _joinForm(),
+            TextButton(
+              onPressed: () {
+                Get.to(LoginPage());
+              },
+              child: const Text("로그인 페이지로 가기"),
+            ),
           ],
         ),
       ),
@@ -29,13 +45,19 @@ class JoinPage extends StatelessWidget {
 
   Widget _joinForm() {
     return Form(
+      key: _formKey,
       child: Column(
         children: [
-          CustomTextFormField(hint: "UserName"),
-          CustomTextFormField(hint: "Password"),
-          CustomTextFormField(hint: "Email"),
+          CustomTextFormField(hint: "UserName", validator: validateUsername()),
+          CustomTextFormField(hint: "Password", validator: validatePassword()),
+          CustomTextFormField(hint: "Email", validator: validatePassword()),
           CustomElevatedButton(
             text: "회원가입",
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                Get.to(LoginPage());
+              }
+            },
           ),
         ],
       ),
