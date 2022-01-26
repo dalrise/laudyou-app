@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:laudyou_app/screen/home_screen.dart';
-import 'package:laudyou_app/screen/question_main_screen.dart';
-import 'package:laudyou_app/widget/bottom_bar.dart';
+import 'package:laudyou_app/view/screen/home_screen.dart';
+import 'package:laudyou_app/view/screen/question_main_screen.dart';
+import 'package:laudyou_app/view/widget/bottom_bar.dart';
 
 class MainHomePage extends StatelessWidget {
   const MainHomePage({Key? key, required this.title}) : super(key: key);

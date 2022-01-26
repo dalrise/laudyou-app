@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laudyou_app/page/post/home_page.dart';
-import 'package:laudyou_app/page/post/update_page.dart';
+import 'package:laudyou_app/view/page/post/update_page.dart';
 
+import 'home_page.dart';
 class DetailPage extends StatelessWidget {
   final int id;
 
@@ -30,14 +30,16 @@ class DetailPage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    Get.to(HomePage());
+                    Get.to(() => HomePage());
                   },
                   child: Text("삭제"),
                 ),
                 SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
-                    Get.to(UpdatePage());
+                    Get.to(() => UpdatePage(
+                          id: id,
+                        ));
                   },
                   child: Text("수정"),
                 ),

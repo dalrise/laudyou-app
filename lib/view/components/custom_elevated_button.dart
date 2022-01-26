@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laudyou_app/page/user/login_page.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String text;

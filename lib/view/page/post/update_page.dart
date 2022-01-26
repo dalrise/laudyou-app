@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laudyou_app/components/custom_elevated_button.dart';
-import 'package:laudyou_app/components/custom_text_form_area.dart';
-import 'package:laudyou_app/components/custom_text_form_filed.dart';
-import 'package:laudyou_app/page/post/home_page.dart';
 import 'package:laudyou_app/utils/validator_util.dart';
+import 'package:laudyou_app/view/components/custom_elevated_button.dart';
+import 'package:laudyou_app/view/components/custom_text_form_area.dart';
+import 'package:laudyou_app/view/components/custom_text_form_filed.dart';
 
-class WritePage extends StatelessWidget {
-  //WritePage({Key? key}) : super(key: key);
+class UpdatePage extends StatelessWidget {
+  final int id;
+
+  UpdatePage({Key? key, required this.id}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
 
@@ -22,20 +23,23 @@ class WritePage extends StatelessWidget {
           child: ListView(
             children: [
               CustomTextFormField(
+                initialValue: "제목",
                 hint: "title",
                 validator: validateTitle(),
                 circular: 5,
               ),
               CustomTextFormArea(
+                initialValue: "내용" * 100,
                 hint: "content",
                 validator: validateContent(500),
                 maxLength: 500,
               ),
               CustomElevatedButton(
-                  text: "글쓰기",
+                  text: "글 수정하기",
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      Get.off(HomePage());
+                      //Get.off(() => DetailPage(id: id));
+                      Get.back();
                     }
                   }),
             ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laudyou_app/page/guide_home_page.dart';
-import 'package:laudyou_app/page/main_home_page.dart';
+import 'package:laudyou_app/view/page/guide_home_page.dart';
+import 'package:laudyou_app/view/page/main_home_page.dart';
 import 'dart:async';
 
 import 'package:shared_preferences/shared_preferences.dart';

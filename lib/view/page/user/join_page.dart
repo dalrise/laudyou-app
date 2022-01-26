@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:laudyou_app/utils/validator_util.dart';
+import 'package:laudyou_app/view/components/custom_elevated_button.dart';
+import 'package:laudyou_app/view/components/custom_text_form_filed.dart';
 import 'package:validators/validators.dart';
-
-import 'package:laudyou_app/components/custom_elevated_button.dart';
-import 'package:laudyou_app/components/custom_text_form_filed.dart';
-import 'package:laudyou_app/page/post/home_page.dart';
 
 import 'login_page.dart';
 
