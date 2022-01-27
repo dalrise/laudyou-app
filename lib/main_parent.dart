@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laudyou_app/screen/home_screen.dart';
-import 'package:laudyou_app/widget/bottom_bar.dart';
+import 'package:laudyou_app/view/screen/home_screen.dart';
+import 'package:laudyou_app/view/widget/bottom_bar.dart';
 
 void main() {
   runApp(const MyApp());

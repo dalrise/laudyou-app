@@ -1,10 +1,47 @@
 import 'package:get/get.dart';
+import 'package:laudyou_app/domain/question/question.dart';
 import 'package:laudyou_app/models/mode_question.dart';
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 
 class QuestionController extends GetxController {
-  final RxList<QuestionBank> _items = <QuestionBank>[].obs;
+  final RxList<Question> _items = <Question>[].obs;
+  final _question = Question("", "").obs;
+
+  final _currentIndex = 0.obs;
+
+  @override
+  void onInit() {
+    initData();
+    super.onInit();
+  }
+
+  get question => _question.value;
+
+  get currentIndex {
+    return _currentIndex;
+  }
+
+  Question? next() {
+    if (_items.length - 1 == _currentIndex.value) {
+      return null;
+    }
+    _currentIndex.value++;
+
+    return _items[_currentIndex.value];
+  }
+
+  void initData() {
+    _items.addAll([
+      Question.fromJson({'expression': '2+2=4', 'operation': 'plus'}),
+      Question.fromJson({'expression': '12+2=14', 'operation': 'plus'}),
+      Question.fromJson({'expression': '22-2=14', 'operation': 'minus'}),
+      Question.fromJson({'expression': '32-2=24', 'operation': 'minus'}),
+      Question.fromJson({'expression': '42+22=44', 'operation': 'plus'}),
+      Question.fromJson({'expression': '52+22=34', 'operation': 'plus'}),
+      Question.fromJson({'expression': '62-2=24', 'operation': 'minus'}),
+    ]);
+  }
 
   load() async {
     print('load call!!');

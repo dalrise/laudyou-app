@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:laudyou_app/page/post/home_page.dart';
-import 'package:laudyou_app/page/user/join_page.dart';
-import 'package:laudyou_app/page/user/login_page.dart';
+import 'package:laudyou_app/view/page/post/home_page.dart';
+import 'package:laudyou_app/view/page/question/question_home_page.dart';
+import 'package:laudyou_app/view/page/user/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +13,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: QuestionHomePage(
+        expression: "11-22=32",
+        operation: "plus",
+      ),
     );
   }
 }
