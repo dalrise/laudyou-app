@@ -1,10 +1,10 @@
-import 'dart:ffi';
-
 import 'package:get/get.dart';
 import 'package:laudyou_app/domain/user/user_repository.dart';
 import 'package:laudyou_app/utils/auth_util.dart';
 import 'package:laudyou_app/view/page/post/home_page.dart';
 import 'package:laudyou_app/view/page/user/login_page.dart';
+
+import 'dto/user/login_res_dto.dart';
 
 class UserController extends GetxController {
   final UserRepository _userRepository = UserRepository();
@@ -20,12 +20,12 @@ class UserController extends GetxController {
     isLogin.value = false;
   }
 
-  Future<String?> login(String username, String password) async {
-    String? token = await _userRepository.login(username, password);
-    if (token != null) {
+  Future<LoginResDto?> login(String username, String password) async {
+    LoginResDto? loginResDto = await _userRepository.login(username, password);
+    if (loginResDto != null) {
       isLogin.value = true;
-      setJwtToken(token);
+      setJwtToken(loginResDto.token);
     }
-    return token;
+    return loginResDto;
   }
 }

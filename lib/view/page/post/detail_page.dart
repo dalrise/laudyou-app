@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:laudyou_app/view/page/post/update_page.dart';
 
 import 'home_page.dart';
+
 class DetailPage extends StatelessWidget {
   final int id;
 

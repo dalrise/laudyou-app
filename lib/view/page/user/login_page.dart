@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:laudyou_app/controller/dto/user/login_res_dto.dart';
 import 'package:laudyou_app/controller/user_controller.dart';
 import 'package:laudyou_app/domain/user/user_repository.dart';
 import 'package:laudyou_app/utils/validator_util.dart';
@@ -67,10 +68,9 @@ class LoginPage extends StatelessWidget {
               onPressed: () async {
                 if (_formKey.currentState!.validate()) {
                   //Get.to(() => HomePage());
-                  String? token = await _userController.login(
+                  LoginResDto? loginResDto = await _userController.login(
                       _username.text.trim(), _password.text.trim());
-                  print(token);
-                  if (token == null) {
+                  if (loginResDto == null) {
                     Get.snackbar("로그인 시도", "로그인 실패");
                   } else {
                     Get.to(() => HomePage());
