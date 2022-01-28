@@ -12,6 +12,11 @@ class PostProvider extends GetConnect {
   // 로그인
   Future<Response> findAll() async {
     String token = await getJwtToken();
-    return get("$host/notice", headers: {"authorization": token});
+    return get("$host/notice/sample", headers: {"authorization": token});
+  }
+
+  Future<Response> findById(id) async {
+    String token = await getJwtToken();
+    return get("$host/notice/$id", headers: {"authorization": token});
   }
 }

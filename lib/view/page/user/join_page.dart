@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:laudyou_app/utils/validator_util.dart';
 import 'package:laudyou_app/view/components/custom_elevated_button.dart';
 import 'package:laudyou_app/view/components/custom_text_form_filed.dart';
+import 'package:laudyou_app/view/widget/navigation.dart';
 import 'package:validators/validators.dart';
 
 import 'login_page.dart';
@@ -16,6 +17,9 @@ class JoinPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("회원가입"),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
@@ -53,7 +57,7 @@ class JoinPage extends StatelessWidget {
             text: "회원가입",
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                Get.to(LoginPage());
+                Get.to(() => LoginPage());
               }
             },
           ),

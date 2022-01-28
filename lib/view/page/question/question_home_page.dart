@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:laudyou_app/controller/question_controller.dart';
 import 'package:laudyou_app/domain/question/question.dart';
+import 'package:laudyou_app/main.dart';
+import 'package:laudyou_app/view/page/main_home_page.dart';
 
 class QuestionHomePage extends StatelessWidget {
   final String expression;
@@ -37,7 +39,16 @@ class QuestionHomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("한자리 입력 > 빈칸채우기"),
+        title: Text("한자리 입력 $expression"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.pie_chart),
+            tooltip: '종료',
+            onPressed: () => {
+              Get.offAll(() => MainHomePage(title: "제목")),
+            },
+          )
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -53,6 +64,17 @@ class QuestionHomePage extends StatelessWidget {
                     onPressed: () {
                       Question? question = _controller.next();
                       if (question != null) {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    QuestionHomePage(
+                                        expression: question.expression,
+                                        operation: question.operation)));
+
+                        // Get.to(() => QuestionHomePage(
+                        //     expression: question.expression,
+                        //     operation: question.operation));
                         print(question.expression);
                       }
                     },

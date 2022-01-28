@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:laudyou_app/controller/question_controller.dart';
+import 'package:laudyou_app/view/widget/navigation.dart';
 
 class QuestionMainScreen extends StatelessWidget {
   QuestionMainScreen({Key? key}) : super(key: key);
@@ -10,6 +11,10 @@ class QuestionMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Navigation(),
+      appBar: AppBar(
+        title: Text("퀴즈 메인"),
+      ),
       body: Container(
         child: Padding(
           padding: const EdgeInsets.all(20),
