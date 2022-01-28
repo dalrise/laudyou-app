@@ -1,51 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laudyou_app/controller/post_controller.dart';
 import 'package:laudyou_app/controller/user_controller.dart';
+import 'package:laudyou_app/view/page/main_home_page.dart';
+import 'package:laudyou_app/view/page/post/home_page.dart';
 import 'package:laudyou_app/view/page/post/write_page.dart';
 import 'package:laudyou_app/view/page/user/user_info.dart';
-import 'package:laudyou_app/view/widget/navigation.dart';
-import '../../../size.dart';
-import 'detail_page.dart';
 
-class HomePage extends StatelessWidget {
-  //const HomePage({Key? key}) : super(key: key);
-  UserController _userController = Get.put(UserController());
-  PostController _postController = Get.put(PostController());
+import '../../size.dart';
+
+class Navigation extends StatelessWidget {
+  Navigation({Key? key}) : super(key: key);
+
+  final UserController _userController = Get.put(UserController());
 
   @override
   Widget build(BuildContext context) {
-    //_postController.findAll();
-
-    return Scaffold(
-      drawer: Navigation(),
-      appBar: AppBar(
-        title: Text("${_userController.isLogin}"),
-      ),
-      body: Obx(() => ListView.separated(
-            itemCount: _postController.totalCount.value,
-            itemBuilder: (context, index) {
-              return ListTile(
-                onTap: () {
-                  _postController.findById(_postController.posts[index].id);
-                  Get.to(
-                      () => DetailPage(
-                            id: _postController.posts[index].id,
-                          ),
-                      arguments: "arguments 로 넘기기");
-                },
-                title: Text("${_postController.posts[index].title}"),
-                leading: Text((index + 1).toString()),
-              );
-            },
-            separatorBuilder: (context, index) {
-              return Divider();
-            },
-          )),
-    );
-  }
-
-  Widget _navigation(BuildContext context) {
     return Container(
       width: getDrawerWidth(context),
       height: double.infinity,
@@ -56,6 +25,19 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              TextButton(
+                onPressed: () {
+                  Get.to(() => MainHomePage(title: "메인"));
+                },
+                child: Text(
+                  "홈",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black54),
+                ),
+              ),
+              const Divider(),
               TextButton(
                 onPressed: () {
                   Get.to(() => HomePage());

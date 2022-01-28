@@ -12,6 +12,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Container(
+      child: Text("Home 화면 !!"),
+    );
+  }
+  /*
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('메인 화면'),
@@ -41,4 +48,5 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+   */
 }

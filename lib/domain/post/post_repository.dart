@@ -7,12 +7,26 @@ import 'package:laudyou_app/domain/post/post_provider.dart';
 class PostRepository {
   final PostProvider _postProvider = PostProvider();
 
-  Future<void> findAll() async {
+  Future<CommonPaging<Post>> findAll() async {
     Response response = await _postProvider.findAll();
     //dynamic body = response.body;
     //print(body);
-    //CommonPaging<Post> result = CommonPaging.fromJson(response.body);
+    CommonPaging<Post> result = CommonPaging.fromJson(response.body);
 
-    //print(result);
+    // print(result.totalCnt);
+    // print(result.result[0].title);
+
+    return result;
+  }
+
+  Future<Post> findById(id) async {
+    Response response = await _postProvider.findById(id);
+
+    if (response.statusCode == 1) {
+      Post post = Post.fromJson(response.body);
+      return post;
+    } else {
+      return Post(id: 0, title: "");
+    }
   }
 }

@@ -6,16 +6,16 @@ part 'post.g.dart';
 
 @JsonSerializable()
 class Post {
-  final int? id;
-  final String? title;
+  final int id;
+  final String title;
   final String? content;
   final User? user;
   final DateTime? created;
   final DateTime? updated;
 
   Post(
-      {this.id,
-      this.title,
+      {required this.id,
+      required this.title,
       this.content,
       this.user,
       this.created,

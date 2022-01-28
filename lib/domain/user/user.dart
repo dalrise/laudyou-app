@@ -7,10 +7,10 @@ part 'user.g.dart';
 class User {
   final int id;
   final String username;
-  final String password;
-  final String email;
-  final DateTime created;
-  final DateTime updated;
+  final String? password;
+  final String? email;
+  final DateTime? created;
+  final DateTime? updated;
 
   User(this.id, this.username, this.password, this.email, this.created,
       this.updated);

@@ -6,7 +6,7 @@ import 'dart:async';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<bool> read_firstinstall() async {
+Future<bool> _readFirstinstall() async {
   final prefs = await SharedPreferences.getInstance();
   var value = prefs.getBool("firstinstall") ?? false;
 
@@ -16,13 +16,13 @@ Future<bool> read_firstinstall() async {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  var first = await read_firstinstall();
+  var first = await _readFirstinstall();
   runApp(
     GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'LaudYou Service',
         home: (first
-            ? const MainHomePage(title: '메인 화면')
+            ? MainHomePage(title: '메인 화면')
             : const GuideHomePage(
                 title: 'LaudYou 처음 사용자용 Guide Page',
               ))),

@@ -2,13 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get.dart';
+import 'package:laudyou_app/controller/post_controller.dart';
+import 'package:laudyou_app/controller/user_controller.dart';
 import 'package:laudyou_app/view/screen/home_screen.dart';
 import 'package:laudyou_app/view/screen/question_main_screen.dart';
 import 'package:laudyou_app/view/widget/bottom_bar.dart';
+import 'package:laudyou_app/view/widget/navigation.dart';
 
 class MainHomePage extends StatelessWidget {
-  const MainHomePage({Key? key, required this.title}) : super(key: key);
+  MainHomePage({Key? key, required this.title}) : super(key: key);
+
+  // UserControllerroller _userController = Get.put(UserController());
+  // PostController _postController = Get.put(PostController());
 
   final String title;
 
@@ -17,6 +23,7 @@ class MainHomePage extends StatelessWidget {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
+        drawer: Navigation(),
         appBar: AppBar(
           title: Text(title),
         ),
@@ -38,7 +45,7 @@ class MainHomePage extends StatelessWidget {
         bottomNavigationBar: const BottomBar(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Get.to(QuestionMainScreen());
+            Get.to(() => QuestionMainScreen());
           },
           tooltip: '문제 풀기',
           child: const Icon(
