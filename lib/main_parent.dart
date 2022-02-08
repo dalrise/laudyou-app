@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laudyou_app/view/screen/home_screen.dart';
+import 'package:laudyou_app/view/page/home/home_screen.dart';
 import 'package:laudyou_app/view/widget/bottom_bar.dart';
 
 void main() {

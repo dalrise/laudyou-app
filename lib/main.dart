@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:laudyou_app/theme.dart';
 
 import 'package:laudyou_app/view/page/main_home_page.dart';
 import 'package:laudyou_app/view/page/post/home_page.dart';
@@ -90,6 +91,7 @@ class MyApp extends StatelessWidget {
       home: MainHomePage(
         title: 'Laud You',
       ),
+      theme: theme(),
     );
   }
 }

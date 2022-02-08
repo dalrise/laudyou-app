@@ -3,6 +3,7 @@ import 'package:laudyou_app/domain/question/question.dart';
 import 'package:laudyou_app/models/mode_question.dart';
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
+import 'package:laudyou_app/view/page/question/question_home_page.dart';
 
 class QuestionController extends GetxController {
   final RxList<Question> _items = <Question>[].obs;
@@ -28,6 +29,8 @@ class QuestionController extends GetxController {
     }
     _currentIndex.value++;
 
+    _question.value = _items[_currentIndex.value];
+
     return _items[_currentIndex.value];
   }
 
@@ -44,6 +47,16 @@ class QuestionController extends GetxController {
   }
 
   load() async {
+    //print(_question.value);
+
+    _currentIndex.value = 0;
+    _question.value = _items[_currentIndex.value];
+
+    Get.to(() => QuestionHomePage(
+        expression: _question.value.expression,
+        operation: _question.value.operation));
+
+    /*
     print('load call!!');
     // https://www.googleapis.com/books/v1/volumes?q=http
     var url =
@@ -57,5 +70,7 @@ class QuestionController extends GetxController {
     } else {
       print('Request failed with status: ${response.statusCode}.');
     }
+
+     */
   }
 }
