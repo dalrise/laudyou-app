@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'constants.dart';
+
 TextTheme textTheme() {
   return TextTheme(
     headline1: GoogleFonts.openSans(fontSize: 18.0, color: Colors.black),
@@ -15,7 +17,7 @@ TextTheme textTheme() {
 AppBarTheme appTheme() {
   return AppBarTheme(
     centerTitle: false,
-    color: Colors.white,
+    color: kPrimaryColor,
     elevation: 0.0,
     toolbarTextStyle: TextTheme(
       headline6: GoogleFonts.nanumGothic(
@@ -41,5 +43,9 @@ ThemeData theme() {
     scaffoldBackgroundColor: Colors.white,
     textTheme: textTheme(),
     appBarTheme: appTheme(),
+    primaryColor: kPrimaryColor,
+    textSelectionTheme:
+        const TextSelectionThemeData(cursorColor: kPrimaryColor),
+    visualDensity: VisualDensity.adaptivePlatformDensity,
   );
 }

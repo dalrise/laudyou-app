@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:laudyou_app/controller/post_controller.dart';
 import 'package:laudyou_app/controller/user_controller.dart';
 import 'package:laudyou_app/view/page/home/home_screen.dart';
+import 'package:laudyou_app/view/page/mylaudyou/components/my_laud_you_header.dart';
+import 'package:laudyou_app/view/page/mylaudyou/my_laud_you_page.dart';
 import 'package:laudyou_app/view/page/question/question_home_page.dart';
 import 'package:laudyou_app/view/screen/question_main_screen.dart';
 import 'package:laudyou_app/view/widget/bottom_bar.dart';
@@ -43,7 +45,18 @@ class _MainHomePageState extends State<MainHomePage> {
               expression: '2+2=4',
               operation: 'plus',
             ),
-          )
+          ),
+          Container(
+            color: Colors.orange[200],
+            child: QuestionHomePage(
+              expression: '2+2=4',
+              operation: 'plus',
+            ),
+          ),
+          Container(
+            color: Colors.orange[200],
+            child: const MyLaudYouPage(),
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

@@ -8,6 +8,7 @@ import 'package:laudyou_app/theme.dart';
 import 'package:laudyou_app/view/page/main_home_page.dart';
 import 'package:laudyou_app/view/page/post/home_page.dart';
 import 'package:laudyou_app/view/page/question/question_home_page.dart';
+import 'package:laudyou_app/view/page/splash/splash_page.dart';
 import 'package:laudyou_app/view/page/user/login_page.dart';
 
 void main() {
@@ -88,9 +89,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainHomePage(
-        title: 'Laud You',
-      ),
+      home: const SplashPage(),
       theme: theme(),
     );
   }
