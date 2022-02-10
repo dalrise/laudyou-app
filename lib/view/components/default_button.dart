@@ -7,9 +7,14 @@ class DefaultButton extends StatelessWidget {
   final String? text;
   final GestureTapCallback? press;
   final Color color;
+  final double width;
 
   const DefaultButton(
-      {Key? key, this.text, this.press, this.color = kPrimaryColor})
+      {Key? key,
+      this.text,
+      this.press,
+      this.color = kButtonColor,
+      this.width = double.infinity})
       : super(key: key);
 
   @override
@@ -18,7 +23,7 @@ class DefaultButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         primary: color,
         padding: const EdgeInsets.all(16),
-        minimumSize: const Size(double.infinity, 50),
+        minimumSize: Size(width, 50),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),

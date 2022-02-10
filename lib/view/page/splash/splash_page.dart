@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:laudyou_app/constants.dart';
+import 'package:laudyou_app/utils/auth_util.dart';
 import 'package:laudyou_app/view/page/main_home_page.dart';
+import 'package:laudyou_app/view/page/user/first_page.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashPage extends StatelessWidget {
@@ -10,8 +12,13 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 2), () {
-      Get.off(() => const MainHomePage(title: "Laud You"));
+    Future.delayed(const Duration(seconds: 2), () async {
+      final firstInstall = await getFirstInstall();
+      if (firstInstall) {
+        Get.off(() => const FirstPage());
+      } else {
+        Get.off(() => const MainHomePage(title: "Laud You"));
+      }
     });
 
     return Scaffold(
