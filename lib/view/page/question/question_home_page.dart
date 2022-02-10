@@ -33,8 +33,8 @@ class QuestionHomePage extends StatelessWidget {
     List<String> leftExpr = arrExpr[0].split(RegExp("\\-|\\+|\\*|\\/|\\+"));
     String rightExpr = arrExpr[1];
 
-    print("$leftExpr = $rightExpr");
-    print(leftExpr);
+    // print("$leftExpr = $rightExpr");
+    // print(leftExpr);
     //print(leftExpr.split("-|+")[0]);
 
     return Scaffold(
@@ -91,7 +91,7 @@ class QuestionHomePage extends StatelessWidget {
             // Get.to(() => QuestionHomePage(
             //     expression: question.expression,
             //     operation: question.operation));
-            print(question.expression);
+            //print(question.expression);
           }
         },
         child: Text("다음 문제"));
@@ -179,9 +179,9 @@ class QuestionHomePage extends StatelessWidget {
       required List<String> leftExpr,
       required String rightExpr,
       String oper = ""}) {
-    print("oper=$oper");
+    //print("oper=$oper");
     String displayType = calcType[next(0, calcType.length)];
-    print('displayType=' + displayType);
+    //print('displayType=' + displayType);
 
     if (operation == 'minus') {
       return _basicRow(leftExpr: leftExpr, rightExpr: rightExpr, oper: oper);

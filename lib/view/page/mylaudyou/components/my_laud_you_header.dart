@@ -17,20 +17,20 @@ class MyLaudYouHeader extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Spacer(),
-            SizedBox(
+            const Spacer(),
+            const SizedBox(
               width: 250,
               child: Text(
                 "회원 가입하고\n 다양한 문제를 풀어보세요.",
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               "가입 혜택 보기 〉",
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
-            Spacer(),
+            const Spacer(),
             Padding(
               padding: const EdgeInsets.all(20),
               child: DefaultButton(
@@ -40,7 +40,7 @@ class MyLaudYouHeader extends StatelessWidget {
                 },
               ),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
       ),

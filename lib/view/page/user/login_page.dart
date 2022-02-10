@@ -7,6 +7,7 @@ import 'package:laudyou_app/domain/user/user_repository.dart';
 import 'package:laudyou_app/utils/validator_util.dart';
 import 'package:laudyou_app/view/components/custom_elevated_button.dart';
 import 'package:laudyou_app/view/components/custom_text_form_filed.dart';
+import 'package:laudyou_app/view/page/main_home_page.dart';
 import 'package:laudyou_app/view/page/post/home_page.dart';
 import 'package:laudyou_app/view/widget/navigation.dart';
 
@@ -88,7 +89,10 @@ class LoginPage extends StatelessWidget {
                     if (loginResDto == null) {
                       Get.snackbar("로그인 시도", "로그인 실패");
                     } else {
-                      Get.to(() => HomePage());
+                      // Get.offAll 을 하면 controller 가 destory 된다.
+                      Get.off(() => MainHomePage(
+                            title: 'Laud You',
+                          ));
                     }
                   } catch (e) {
                     print(e);
