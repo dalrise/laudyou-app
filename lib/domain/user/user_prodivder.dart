@@ -31,4 +31,6 @@ class UserProvider extends CustomGetConnect {
       return response;
     });
   }
+
+  Future<Response> me() => fetchGet("/user/me");
 }

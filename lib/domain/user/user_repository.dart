@@ -31,4 +31,8 @@ class UserRepository {
     return token;
      */
   }
+
+  me() async {
+    final response = await _userProvider.me();
+  }
 }

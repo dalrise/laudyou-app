@@ -20,9 +20,24 @@ class UserController extends GetxController {
     isLogin.value = false;
   }
 
+  Future<void> me() async {
+    try {
+      LoginResDto? loginResDto = await _userRepository.me();
+      if (loginResDto != null) {
+        print("me 로그인 성공!!!!");
+        isLogin.value = true;
+        //setJwtToken(loginResDto.token);
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
   Future<LoginResDto?> login(String username, String password) async {
     LoginResDto? loginResDto = await _userRepository.login(username, password);
+
     if (loginResDto != null) {
+      print("로그인 성공!!!!");
       isLogin.value = true;
       setJwtToken(loginResDto.token);
     }

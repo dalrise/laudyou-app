@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:laudyou_app/controller/user_controller.dart';
 import 'package:laudyou_app/theme.dart';
+import 'package:laudyou_app/utils/auth_util.dart';
 import 'package:laudyou_app/utils/custom_animation.dart';
 
 import 'package:laudyou_app/view/page/main_home_page.dart';
@@ -20,6 +22,15 @@ void main() {
   runApp(const MyApp());
 
   configLoading();
+  checkLoginToken();
+}
+
+void checkLoginToken() async {
+  String token = await getJwtToken();
+  print('token=${token}');
+
+  UserController controller = Get.put(UserController());
+  controller.me();
 }
 
 void configLoading() {
