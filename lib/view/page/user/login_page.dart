@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:laudyou_app/controller/dto/user/login_res_dto.dart';
 import 'package:laudyou_app/controller/user_controller.dart';
@@ -9,6 +10,7 @@ import 'package:laudyou_app/view/components/custom_text_form_filed.dart';
 import 'package:laudyou_app/view/page/post/home_page.dart';
 import 'package:laudyou_app/view/widget/navigation.dart';
 
+import '../../components/default_button.dart';
 import 'join_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -72,12 +74,27 @@ class LoginPage extends StatelessWidget {
               onPressed: () async {
                 if (_formKey.currentState!.validate()) {
                   //Get.to(() => HomePage());
-                  LoginResDto? loginResDto = await _userController.login(
-                      _username.text.trim(), _password.text.trim());
-                  if (loginResDto == null) {
-                    Get.snackbar("로그인 시도", "로그인 실패");
-                  } else {
-                    Get.to(() => HomePage());
+                  await EasyLoading.show(
+                    status: 'loading...',
+                    maskType: EasyLoadingMaskType.black,
+                  );
+
+                  try {
+                    LoginResDto? loginResDto = await _userController.login(
+                        _username.text.trim(), _password.text.trim());
+
+                    await EasyLoading.dismiss();
+
+                    if (loginResDto == null) {
+                      Get.snackbar("로그인 시도", "로그인 실패");
+                    } else {
+                      Get.to(() => HomePage());
+                    }
+                  } catch (e) {
+                    print(e);
+                    await EasyLoading.showError(e.toString());
+
+                    //await EasyLoading.dismiss();
                   }
                 }
               }),

@@ -11,7 +11,10 @@ class UserRepository {
   Future<LoginResDto?> login(String username, String password) async {
     LoginReqDto dto = LoginReqDto(username, password);
     //print(dto.toJson());
-    Response response = await _userProvider.login(dto.toJson());
+    final response = await _userProvider.login(dto.toJson());
+    if (response.status.hasError) {
+      return Future.error(response.statusText ?? "error");
+    }
 
     LoginResDto loginResDto = LoginResDto.fromJson(response.body);
     return loginResDto;
