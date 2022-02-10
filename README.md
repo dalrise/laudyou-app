@@ -20,10 +20,10 @@ dart pub add json_serializable --dev
 2. android studio termial 에서 flutter upgrade 실행
 
 
-## 웹배포
-npm install --global surge 설치 후  build/web 폴더에서
-surge 실행
-아이디, 패스워드 입력 후 엔터 하면 현재 디렉토리 upload 및 자동으로 경로 생성
-npm install --global surge
-
-http://harsh-plane.surge.sh
+## splash 처리
+https://pub.dev/packages/flutter_native_splash 작업 
+ - lottie 는 동작하지 않는다.
+   
+ - 설정 파일 (flutter_native_splash.yaml)
+   설정 변경 시 아래 명령 실행
+ - flutter pub run flutter_native_splash:create
