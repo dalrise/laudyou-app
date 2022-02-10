@@ -15,7 +15,7 @@ class SplashPage extends StatelessWidget {
     Future.delayed(const Duration(seconds: 2), () async {
       final firstInstall = await getFirstInstall();
       if (firstInstall) {
-        Get.off(() => const FirstPage());
+        Get.off(() => FirstPage());
       } else {
         Get.off(() => const MainHomePage(title: "Laud You"));
       }

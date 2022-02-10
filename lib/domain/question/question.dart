@@ -7,7 +7,7 @@ class Question {
   final String expression;
   final String operation;
 
-  Question(this.expression, this.operation);
+  Question({required this.expression, required this.operation});
 
   factory Question.fromJson(Map<String, dynamic> json) =>
       _$QuestionFromJson(json);

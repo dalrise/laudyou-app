@@ -7,7 +7,7 @@ import 'package:laudyou_app/view/page/question/question_home_page.dart';
 
 class QuestionController extends GetxController {
   final RxList<Question> _items = <Question>[].obs;
-  final _question = Question("", "").obs;
+  final _question = Question(expression: "", operation: "").obs;
 
   final _currentIndex = 0.obs;
 

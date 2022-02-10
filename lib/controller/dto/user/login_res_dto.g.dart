@@ -7,8 +7,8 @@ part of 'login_res_dto.dart';
 // **************************************************************************
 
 LoginResDto _$LoginResDtoFromJson(Map<String, dynamic> json) => LoginResDto(
-      User.fromJson(json['user'] as Map<String, dynamic>),
-      json['token'] as String,
+      user: User.fromJson(json['user'] as Map<String, dynamic>),
+      token: json['token'] as String,
     );
 
 Map<String, dynamic> _$LoginResDtoToJson(LoginResDto instance) =>

@@ -70,9 +70,9 @@ class LoginPage extends StatelessWidget {
             validator: validatePassword(),
             controller: _password,
           ),
-          CustomElevatedButton(
+          DefaultButton(
               text: "로그인",
-              onPressed: () async {
+              press: () async {
                 if (_formKey.currentState!.validate()) {
                   //Get.to(() => HomePage());
                   await EasyLoading.show(

@@ -1,20 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:laudyou_app/constants.dart';
+import 'package:laudyou_app/controller/user_controller.dart';
 import 'package:laudyou_app/theme.dart';
 import 'package:laudyou_app/view/components/custom_elevated_button.dart';
 import 'package:laudyou_app/view/components/default_button.dart';
+import 'package:laudyou_app/view/page/user/join_page.dart';
+import 'package:laudyou_app/view/page/user/login_page.dart';
 
 class FirstPage extends StatelessWidget {
-  const FirstPage({Key? key}) : super(key: key);
+  FirstPage({Key? key}) : super(key: key);
+
+  final _userController = Get.put(UserController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // apppBar: AppBar(
-      //   title: Text("휴대폰 관리 공부앱"),
-      // ),
+      appBar: AppBar(
+          //title: Text("휴대폰 관리 공부앱"),
+          ),
       body: SafeArea(
         child: Container(
           color: kPrimaryColor,
@@ -43,12 +49,18 @@ class FirstPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   DefaultButton(
-                    press: () {},
+                    press: () {
+                      _userController.userType(UserType.self);
+                      Get.to(() => JoinPage());
+                    },
                     width: 100,
                     text: "스스로 공부하기",
                   ),
                   DefaultButton(
-                    press: () {},
+                    press: () {
+                      _userController.userType(UserType.parent);
+                      Get.to(() => JoinPage());
+                    },
                     width: 100,
                     text: "부모가 관리하기",
                   ),
@@ -59,7 +71,9 @@ class FirstPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => LoginPage());
+                    },
                     child: Text(
                       "기존 계정으로 로그인하기",
                       style: textTheme().bodyText1,
@@ -67,7 +81,9 @@ class FirstPage extends StatelessWidget {
                   ),
                   IconButton(
                     icon: const Icon(CupertinoIcons.question, size: 20),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => LoginPage());
+                    },
                   )
                 ],
               ),

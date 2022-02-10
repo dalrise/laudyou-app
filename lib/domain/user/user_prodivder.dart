@@ -17,8 +17,8 @@ class UserProvider extends CustomGetConnect {
 
   Future<Response> login(Map data) {
     return Future.delayed(loginTime).then((_) {
-      User user =
-          User(1, "jo", "1111", "email", DateTime.now(), DateTime.now());
+      User user = User(id: 1, username: "jo");
+      //User(1, "jo", "1111", "email", DateTime.now(), DateTime.now());
       String token =
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.HkV3Z-V310H-DAff_VtEMM4fsNzdagusKE-YWFXX3PY";
 
@@ -33,4 +33,7 @@ class UserProvider extends CustomGetConnect {
   }
 
   Future<Response> me() => fetchGet("/user/me");
+
+  Future<Response> join(Map<String, dynamic> json) =>
+      fetchPost("/user/join", json);
 }

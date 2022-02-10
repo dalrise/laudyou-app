@@ -4,6 +4,8 @@ import '../../utils/auth_util.dart';
 const _host = "http://172.16.20.79:3000/api";
 
 class CustomGetConnect extends GetConnect {
+  Duration get loginTime => const Duration(milliseconds: 1250);
+
   Future<Response> fetchGet(String url) async {
     String token = await getJwtToken();
     final headers = {

@@ -7,7 +7,7 @@ class LoginResDto {
   final User user;
   final String token;
 
-  LoginResDto(this.user, this.token);
+  LoginResDto({required this.user, required this.token});
 
   factory LoginResDto.fromJson(Map<String, dynamic> json) =>
       _$LoginResDtoFromJson(json);

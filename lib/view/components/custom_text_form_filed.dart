@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -6,12 +7,14 @@ class CustomTextFormField extends StatelessWidget {
   final double circular;
   final String? initialValue;
   final TextEditingController? controller;
+  final Icon? suffixIcon;
 
   const CustomTextFormField(
       {Key? key,
       required this.hint,
       required this.validator,
       this.circular = 20,
+      this.suffixIcon,
       this.initialValue,
       this.controller})
       : super(key: key);
@@ -26,7 +29,16 @@ class CustomTextFormField extends StatelessWidget {
         validator: validator,
         obscureText: hint == "Password" ? true : false,
         decoration: InputDecoration(
-          hintText: "Enter $hint",
+          hintText: hint,
+
+          suffixIcon: suffixIcon,
+          // prefixIcon: Padding(
+          //   padding: EdgeInsets.all(0.0),
+          //   child: Icon(
+          //     CupertinoIcons.person,
+          //     color: Colors.greenAccent,
+          //   ),
+          // ),
           enabledBorder:
               OutlineInputBorder(borderRadius: BorderRadius.circular(circular)),
           focusedBorder:
