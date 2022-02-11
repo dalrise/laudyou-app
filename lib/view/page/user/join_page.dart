@@ -12,6 +12,8 @@ import 'package:laudyou_app/view/widget/appbar_bottom_preferredsize.dart';
 import 'package:laudyou_app/view/widget/navigation.dart';
 import 'package:validators/validators.dart';
 
+import '../../../constants.dart';
+import '../../components/custom_show_dialog.dart';
 import 'login_page.dart';
 
 class JoinPage extends StatefulWidget {
@@ -135,7 +137,19 @@ class _JoinPageState extends State<JoinPage> {
             text: "회원가입",
             press: () async {
               if (_formKey.currentState!.validate()) {
-                _showMyDialog(context);
+                //_showMyDialog(context);
+                Widget widget = SizedBox(
+                  height: 300,
+                  child: Column(
+                    children: [
+                      Text("You can make cool stuff!",
+                          style: TextStyle(fontSize: 24),
+                          textAlign: TextAlign.center)
+                    ],
+                  ),
+                );
+
+                openAlertBox2(context: context, widget: widget);
 
                 /*
                 await EasyLoading.show(
@@ -165,60 +179,6 @@ class _JoinPageState extends State<JoinPage> {
       ),
     );
   }
-}
-
-Future<void> _showMyDialog(context) async {
-  return showDialog<void>(
-    context: context,
-    barrierDismissible: false, // user must tap button!
-    builder: (BuildContext context) {
-      return SimpleDialog(
-        title: const Text('AlertDialog Title'),
-        children: [
-          Text("휴대폰 관리 공부앱"),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Image.asset(
-              "assets/images/logo.jpg",
-              fit: BoxFit.cover,
-            ),
-          ),
-          Text(
-            "Laud You",
-            style: textTheme().bodyText1,
-          ),
-          SimpleDialogOption(
-            onPressed: () {
-              //Navigator.pop(context, Department.treasury);
-            },
-            child: const Text('Treasury department'),
-          ),
-          SimpleDialogOption(
-            onPressed: () {
-              //Navigator.pop(context, Department.state);
-            },
-            child: const Text('State department'),
-          ),
-        ],
-        // content: SingleChildScrollView(
-        //   child: ListBody(
-        //     children: const <Widget>[
-        //       Text('This is a demo alert dialog.'),
-        //       Text('Would you like to approve of this message?'),
-        //     ],
-        //   ),
-        // ),
-        // actions: <Widget>[
-        //   TextButton(
-        //     child: const Text('Approve'),
-        //     onPressed: () {
-        //       Navigator.of(context).pop();
-        //     },
-        //   ),
-        // ],
-      );
-    },
-  );
 }
 
 _buildJoinSuccess() {
