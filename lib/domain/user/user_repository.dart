@@ -9,9 +9,12 @@ class UserRepository {
   final UserProvider _userProvider = UserProvider();
 
   Future<LoginResDto?> login(String username, String password) async {
-    LoginReqDto dto = LoginReqDto(username, password);
+    LoginReqDto dto = LoginReqDto(username: username, password: password);
     //print(dto.toJson());
-    Response response = await _userProvider.login(dto.toJson());
+    final response = await _userProvider.login(dto.toJson());
+    if (response.status.hasError) {
+      return Future.error(response.statusText ?? "error");
+    }
 
     LoginResDto loginResDto = LoginResDto.fromJson(response.body);
     return loginResDto;
@@ -27,5 +30,21 @@ class UserRepository {
     String? token = response.body.token;
     return token;
      */
+  }
+
+  me() async {
+    final response = await _userProvider.me();
+  }
+
+  Future<LoginResDto> join(User user) async {
+    print(user.toJson());
+
+    final response = await _userProvider.join(user.toJson());
+    if (response.status.hasError) {
+      return Future.error(response.statusText ?? "error");
+    }
+
+    LoginResDto loginResDto = LoginResDto.fromJson(response.body);
+    return loginResDto;
   }
 }

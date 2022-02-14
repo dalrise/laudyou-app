@@ -22,7 +22,7 @@ Future<void> main() async {
         debugShowCheckedModeBanner: false,
         title: 'LaudYou Service',
         home: (first
-            ? MainHomePage(title: '메인 화면')
+            ? const MainHomePage(title: '메인 화면')
             : const GuideHomePage(
                 title: 'LaudYou 처음 사용자용 Guide Page',
               ))),

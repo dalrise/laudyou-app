@@ -1,22 +1,11 @@
 import 'package:get/get.dart';
+import 'package:laudyou_app/domain/base/custom_get_connect.dart';
 import 'package:laudyou_app/utils/auth_util.dart';
 
-const host = "http://172.16.20.79:3000/api";
+class PostProvider extends CustomGetConnect {
+  // 게시물 목록
+  Future<Response> findAll() => fetchGet("/notice/sample");
 
-class PostProvider extends GetConnect {
-  Map<String, String> headers = {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-  };
-
-  // 로그인
-  Future<Response> findAll() async {
-    String token = await getJwtToken();
-    return get("$host/notice/sample", headers: {"authorization": token});
-  }
-
-  Future<Response> findById(id) async {
-    String token = await getJwtToken();
-    return get("$host/notice/$id", headers: {"authorization": token});
-  }
+  // 게시물 정보
+  Future<Response> findById(id) => fetchGet("/notice/$id");
 }

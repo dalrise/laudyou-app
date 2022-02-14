@@ -7,8 +7,8 @@ part of 'question.dart';
 // **************************************************************************
 
 Question _$QuestionFromJson(Map<String, dynamic> json) => Question(
-      json['expression'] as String,
-      json['operation'] as String,
+      expression: json['expression'] as String,
+      operation: json['operation'] as String,
     );
 
 Map<String, dynamic> _$QuestionToJson(Question instance) => <String, dynamic>{

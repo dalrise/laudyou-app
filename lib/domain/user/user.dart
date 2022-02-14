@@ -11,9 +11,19 @@ class User {
   final String? email;
   final DateTime? created;
   final DateTime? updated;
+  final String? recommendCode;
+  final bool? isPushEmail;
 
-  User(this.id, this.username, this.password, this.email, this.created,
-      this.updated);
+  User({
+    required this.id,
+    required this.username,
+    this.password,
+    this.email,
+    this.created,
+    this.updated,
+    this.recommendCode,
+    this.isPushEmail,
+  });
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 

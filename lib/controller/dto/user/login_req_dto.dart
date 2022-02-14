@@ -6,7 +6,7 @@ class LoginReqDto {
   final String username;
   final String password;
 
-  LoginReqDto(this.username, this.password);
+  LoginReqDto({required this.username, required this.password});
 
   Map<String, dynamic> toJson() => _$LoginReqDtoToJson(this);
 }

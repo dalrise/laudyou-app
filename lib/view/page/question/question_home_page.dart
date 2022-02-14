@@ -33,8 +33,8 @@ class QuestionHomePage extends StatelessWidget {
     List<String> leftExpr = arrExpr[0].split(RegExp("\\-|\\+|\\*|\\/|\\+"));
     String rightExpr = arrExpr[1];
 
-    print("$leftExpr = $rightExpr");
-    print(leftExpr);
+    // print("$leftExpr = $rightExpr");
+    // print(leftExpr);
     //print(leftExpr.split("-|+")[0]);
 
     return Scaffold(
@@ -60,25 +60,7 @@ class QuestionHomePage extends StatelessWidget {
               children: [
                 ElevatedButton(onPressed: () {}, child: Text("이전 문제")),
                 Spacer(),
-                ElevatedButton(
-                    onPressed: () {
-                      Question? question = _controller.next();
-                      if (question != null) {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    QuestionHomePage(
-                                        expression: question.expression,
-                                        operation: question.operation)));
-
-                        // Get.to(() => QuestionHomePage(
-                        //     expression: question.expression,
-                        //     operation: question.operation));
-                        print(question.expression);
-                      }
-                    },
-                    child: Text("다음 문제")),
+                _buildElevatedButton(context),
               ],
             ),
             Expanded(
@@ -92,6 +74,27 @@ class QuestionHomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  ElevatedButton _buildElevatedButton(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Question? question = _controller.next();
+          if (question != null) {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => QuestionHomePage(
+                        expression: question.expression,
+                        operation: question.operation)));
+
+            // Get.to(() => QuestionHomePage(
+            //     expression: question.expression,
+            //     operation: question.operation));
+            //print(question.expression);
+          }
+        },
+        child: Text("다음 문제"));
   }
 
   Column _basicColum(
@@ -176,9 +179,9 @@ class QuestionHomePage extends StatelessWidget {
       required List<String> leftExpr,
       required String rightExpr,
       String oper = ""}) {
-    print("oper=$oper");
+    //print("oper=$oper");
     String displayType = calcType[next(0, calcType.length)];
-    print('displayType=' + displayType);
+    //print('displayType=' + displayType);
 
     if (operation == 'minus') {
       return _basicRow(leftExpr: leftExpr, rightExpr: rightExpr, oper: oper);
