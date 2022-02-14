@@ -5,6 +5,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:laudyou_app/controller/user_controller.dart';
+import 'package:laudyou_app/routes.dart';
 import 'package:laudyou_app/theme.dart';
 import 'package:laudyou_app/utils/auth_util.dart';
 import 'package:laudyou_app/utils/custom_animation.dart';
@@ -123,6 +124,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const SplashPage(),
       theme: theme(),
+      routes: route,
       builder: EasyLoading.init(),
     );
   }

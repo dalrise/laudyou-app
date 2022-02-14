@@ -8,6 +8,8 @@ import 'package:laudyou_app/utils/validator_util.dart';
 import 'package:laudyou_app/view/components/custom_elevated_button.dart';
 import 'package:laudyou_app/view/components/custom_text_form_filed.dart';
 import 'package:laudyou_app/view/components/default_button.dart';
+import 'package:laudyou_app/view/page/home/home_screen.dart';
+import 'package:laudyou_app/view/page/main_home_page.dart';
 import 'package:laudyou_app/view/widget/appbar_bottom_preferredsize.dart';
 import 'package:laudyou_app/view/widget/navigation.dart';
 import 'package:validators/validators.dart';
@@ -17,6 +19,8 @@ import '../../components/custom_show_dialog.dart';
 import 'login_page.dart';
 
 class JoinPage extends StatefulWidget {
+  static String routeName = "join";
+
   //JoinPage();
   JoinPage({
     Key? key,
@@ -142,9 +146,18 @@ class _JoinPageState extends State<JoinPage> {
                   height: 300,
                   child: Column(
                     children: [
-                      Text("You can make cool stuff!",
+                      Text("라우드 회원가입을 축하드립니다.",
                           style: TextStyle(fontSize: 24),
-                          textAlign: TextAlign.center)
+                          textAlign: TextAlign.center),
+                      Text("Laud You", style: textTheme().headline1),
+                      DefaultButton(
+                        press: () {
+                          Navigator.of(context, rootNavigator: true)
+                              .pop('dialog');
+                          Get.offAll(() => MainHomePage(title: "LaudYou"));
+                        },
+                        text: "확인",
+                      ),
                     ],
                   ),
                 );

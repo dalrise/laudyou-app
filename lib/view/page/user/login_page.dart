@@ -14,14 +14,21 @@ import 'package:laudyou_app/view/widget/navigation.dart';
 import '../../components/default_button.dart';
 import 'join_page.dart';
 
-class LoginPage extends StatelessWidget {
-  //LoginPage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  static String routeName = "login";
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  //LoginPage({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
 
   UserController _userController = Get.put(UserController());
 
   final _username = TextEditingController();
+
   final _password = TextEditingController();
 
   @override
@@ -89,8 +96,7 @@ class LoginPage extends StatelessWidget {
                     if (loginResDto == null) {
                       Get.snackbar("로그인 시도", "로그인 실패");
                     } else {
-                      // Get.offAll 을 하면 controller 가 destory 된다.
-                      Get.off(() => MainHomePage(
+                      Get.offAll(() => const MainHomePage(
                             title: 'Laud You',
                           ));
                     }

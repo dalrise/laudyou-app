@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:laudyou_app/models/icon_menu.dart';
 import 'package:laudyou_app/theme.dart';
 
@@ -13,7 +14,7 @@ class CardIconMenu extends StatelessWidget {
     return Card(
       elevation: 0.5,
       margin: const EdgeInsets.symmetric(horizontal: 8.0),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -29,14 +30,20 @@ class CardIconMenu extends StatelessWidget {
 }
 
 _buildRowIconItem(String title, IconData iconData) {
-  return SizedBox(
-    height: 50,
-    child: Row(
-      children: [
-        Icon(iconData, size: 17),
-        const SizedBox(width: 20),
-        Text(title, style: textTheme().subtitle1),
-      ],
+  return InkWell(
+    onTap: () {
+      Get.toNamed("dd");
+      //print("click");
+    },
+    child: SizedBox(
+      height: 50,
+      child: Row(
+        children: [
+          Icon(iconData, size: 17),
+          const SizedBox(width: 20),
+          Text(title, style: textTheme().subtitle1),
+        ],
+      ),
     ),
   );
 }

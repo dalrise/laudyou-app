@@ -7,6 +7,8 @@ import 'package:laudyou_app/view/widget/appbar_bottom_preferredsize.dart';
 import 'my_setting_page.dart';
 
 class MyLaudYouPage extends StatelessWidget {
+  static String routeName = "my_page";
+
   const MyLaudYouPage({Key? key}) : super(key: key);
 
   @override

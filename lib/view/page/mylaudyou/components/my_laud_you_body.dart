@@ -26,6 +26,8 @@ class MyLaudYouBody extends StatelessWidget {
         CardIconMenu(iconMenuList: iconMenuList1),
         const SizedBox(height: 8),
         CardIconMenu(iconMenuList: iconMenuList2),
+        const SizedBox(height: 8),
+        CardIconMenu(iconMenuList: iconMenuList3),
       ],
     );
   }

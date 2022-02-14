@@ -1,5 +1,10 @@
 # laudyou_app
 
+
+### 개발 사항 
+ - TextEditingController 사용 시 Stateful wiget 을 사용해야 한다.
+
+
 ## validator
 https://pub.dev/documentation/validators/latest/validators/validators-library.html
 
@@ -27,3 +32,5 @@ https://pub.dev/packages/flutter_native_splash 작업
  - 설정 파일 (flutter_native_splash.yaml)
    설정 변경 시 아래 명령 실행
  - flutter pub run flutter_native_splash:create
+
+

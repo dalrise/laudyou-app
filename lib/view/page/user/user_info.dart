@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class UserInfo extends StatelessWidget {
+  static String routeName = "userinfo";
+
   const UserInfo({Key? key}) : super(key: key);
 
   @override

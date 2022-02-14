@@ -14,6 +14,8 @@ import 'package:laudyou_app/view/widget/bottom_bar.dart';
 import 'package:laudyou_app/view/widget/navigation.dart';
 
 class MainHomePage extends StatefulWidget {
+  static String routeName = "/";
+
   const MainHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
@@ -48,14 +50,14 @@ class _MainHomePageState extends State<MainHomePage> {
           ),
           Container(
             color: Colors.orange[200],
+            child: const MyLaudYouPage(),
+          ),
+          Container(
+            color: Colors.orange[200],
             child: QuestionHomePage(
               expression: '2+2=4',
               operation: 'plus',
             ),
-          ),
-          Container(
-            color: Colors.orange[200],
-            child: const MyLaudYouPage(),
           ),
         ],
       ),
@@ -73,9 +75,9 @@ class _MainHomePageState extends State<MainHomePage> {
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.question), label: "문제"),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.chat_bubble), label: "채팅"),
-          BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.person), label: "내정보"),
+          BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.question_circle), label: "고객센타"),
         ],
       ),
     );
