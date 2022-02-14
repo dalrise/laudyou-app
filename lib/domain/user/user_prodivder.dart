@@ -36,4 +36,10 @@ class UserProvider extends CustomGetConnect {
 
   Future<Response> join(Map<String, dynamic> json) =>
       fetchPost("/user/join", json);
+
+  logout() async {
+    final result = await fetchPost<bool>("/user/logout", {});
+    return result;
+    //return Future.delayed(loginTime).then((_) {});
+  }
 }

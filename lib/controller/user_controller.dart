@@ -53,6 +53,19 @@ class UserController extends GetxController {
     return loginResDto;
   }
 
+  bool logout() {
+    bool result = false;
+    try {
+      // todo logout url 처리
+      _userRepository.logout();
+    } catch (e) {}
+
+    isLogin.value = false;
+    setJwtToken("");
+
+    return result;
+  }
+
   Future<LoginResDto?> join(String username, String email, String password,
       String recommendCode, bool isPushEmail) async {
     final user = User(

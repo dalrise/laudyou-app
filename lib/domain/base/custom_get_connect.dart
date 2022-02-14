@@ -16,7 +16,7 @@ class CustomGetConnect extends GetConnect {
     return await get("$_host$url", headers: headers);
   }
 
-  Future<Response> fetchPost(String url, dynamic body) async {
+  Future<Response<T>> fetchPost<T>(String url, dynamic body) async {
     String token = await getJwtToken();
 
     final headers = {
@@ -25,7 +25,7 @@ class CustomGetConnect extends GetConnect {
       'Authorization': 'Bearer $token',
     };
 
-    final response = await post("$_host$url", body, headers: headers);
+    final response = await post<T>("$_host$url", body, headers: headers);
     return response;
   }
 }

@@ -47,4 +47,8 @@ class UserRepository {
     LoginResDto loginResDto = LoginResDto.fromJson(response.body);
     return loginResDto;
   }
+
+  Future<bool> logout() async {
+    return await _userProvider.logout();
+  }
 }

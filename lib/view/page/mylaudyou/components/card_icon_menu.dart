@@ -21,7 +21,10 @@ class CardIconMenu extends StatelessWidget {
           children: List.generate(
             iconMenuList.length,
             (index) => _buildRowIconItem(
-                iconMenuList[index].title, iconMenuList[index].iconData),
+                iconMenuList[index].title,
+                iconMenuList[index].iconData,
+                iconMenuList[index].page,
+                iconMenuList[index].callback),
           ),
         ),
       ),
@@ -29,10 +32,17 @@ class CardIconMenu extends StatelessWidget {
   }
 }
 
-_buildRowIconItem(String title, IconData iconData) {
+_buildRowIconItem(
+    String title, IconData iconData, String? page, VoidCallback? callback) {
   return InkWell(
     onTap: () {
-      Get.toNamed("dd");
+      if (page != null && page.isNotEmpty) {
+        Get.toNamed(page);
+      }
+      if (callback != null) {
+        callback();
+      }
+
       //print("click");
     },
     child: SizedBox(

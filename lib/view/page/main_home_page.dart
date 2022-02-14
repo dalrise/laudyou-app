@@ -14,7 +14,7 @@ import 'package:laudyou_app/view/widget/bottom_bar.dart';
 import 'package:laudyou_app/view/widget/navigation.dart';
 
 class MainHomePage extends StatefulWidget {
-  static String routeName = "/";
+  static String routeName = "main-home";
 
   const MainHomePage({Key? key, required this.title}) : super(key: key);
 
