@@ -17,7 +17,7 @@ class UserProvider extends CustomGetConnect {
 
   Future<Response> login(Map data) {
     return Future.delayed(loginTime).then((_) {
-      User user = User(id: 1, username: "jo");
+      User user = User(id: 1, username: "admin", email: "dev@dalrise.co.kr");
       //User(1, "jo", "1111", "email", DateTime.now(), DateTime.now());
       String token =
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.HkV3Z-V310H-DAff_VtEMM4fsNzdagusKE-YWFXX3PY";

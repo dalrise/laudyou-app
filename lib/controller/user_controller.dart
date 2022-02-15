@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:laudyou_app/domain/user/user.dart';
 import 'package:laudyou_app/domain/user/user_repository.dart';
+import 'package:laudyou_app/models/login_info.dart';
 import 'package:laudyou_app/utils/auth_util.dart';
 import 'package:laudyou_app/view/page/post/home_page.dart';
 import 'package:laudyou_app/view/page/user/login_page.dart';
@@ -18,9 +19,22 @@ class UserController extends GetxController {
   final UserRepository _userRepository = UserRepository();
   final RxBool isLogin = false.obs;
   final Rx<UserType> userType = Rx<UserType>(UserType.self);
+  // 로그인 사용자 정보를 담고 있음
+  final Rx<LoginInfo> loginInfo = LoginInfo(id: 0, name: '', email: '').obs;
 
   void goLogin() {
     Get.to(() => LoginPage());
+  }
+
+  void changeUser(
+      {required int id, required String name, required String email}) {
+    loginInfo.update((val) {
+      if (val != null) {
+        val.id = id;
+        val.name = name;
+        val.email = email;
+      }
+    });
   }
 
   void goLogout() {
@@ -35,6 +49,8 @@ class UserController extends GetxController {
       if (loginResDto != null) {
         print("me 로그인 성공!!!!");
         isLogin.value = true;
+        User user = loginResDto.user;
+        changeUser(id: user.id, name: user.username, email: user.email!);
         //setJwtToken(loginResDto.token);
       }
     } catch (e) {
@@ -48,6 +64,9 @@ class UserController extends GetxController {
     if (loginResDto != null) {
       print("로그인 성공!!!!");
       isLogin.value = true;
+      User user = loginResDto.user;
+      changeUser(id: user.id, name: user.username, email: user.email!);
+
       setJwtToken(loginResDto.token);
     }
     return loginResDto;
