@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 import '../../utils/auth_util.dart';
 
-const _host = "http://172.16.20.79:3000/api";
+//const _host = "http://172.16.20.79:3000/api";
+const _host = "http://192.168.0.11:3000/api";
 
 class CustomGetConnect extends GetConnect {
   Duration get loginTime => const Duration(milliseconds: 1250);

@@ -51,4 +51,13 @@ class UserRepository {
   Future<bool> logout() async {
     return await _userProvider.logout();
   }
+
+  Future<bool> changePassword(String currentPassword, String password) async {
+    final data = {currentPassword: currentPassword, password: password};
+    final response = await _userProvider.changePassword(data);
+    print(response.body);
+    final Future<bool> result = response.body as Future<bool>;
+
+    return result;
+  }
 }

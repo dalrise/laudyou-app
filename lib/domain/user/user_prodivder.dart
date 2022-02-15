@@ -10,12 +10,12 @@ class UserProvider extends CustomGetConnect {
   Duration get loginTime => const Duration(milliseconds: 2250);
 
   // 로그인
-  Future<Response> login2(Map data) async {
+  Future<Response> login(Map data) async {
     final response = await fetchPost("/user/login", data);
     return response;
   }
 
-  Future<Response> login(Map data) {
+  Future<Response> login2(Map data) {
     return Future.delayed(loginTime).then((_) {
       User user = User(id: 1, username: "admin", email: "dev@dalrise.co.kr");
       //User(1, "jo", "1111", "email", DateTime.now(), DateTime.now());
@@ -41,5 +41,10 @@ class UserProvider extends CustomGetConnect {
     final result = await fetchPost<bool>("/user/logout", {});
     return result;
     //return Future.delayed(loginTime).then((_) {});
+  }
+
+  Future<Response<bool>> changePassword(Map<String, String> data) async {
+    final result = fetchPost<bool>("/user/changePassword", data);
+    return result;
   }
 }

@@ -26,7 +26,7 @@ class UserController extends GetxController {
     Get.to(() => LoginPage());
   }
 
-  void changeUser(
+  void _setUser(
       {required int id, required String name, required String email}) {
     loginInfo.update((val) {
       if (val != null) {
@@ -50,7 +50,7 @@ class UserController extends GetxController {
         print("me 로그인 성공!!!!");
         isLogin.value = true;
         User user = loginResDto.user;
-        changeUser(id: user.id, name: user.username, email: user.email!);
+        _setUser(id: user.id, name: user.username, email: user.email!);
         //setJwtToken(loginResDto.token);
       }
     } catch (e) {
@@ -65,7 +65,7 @@ class UserController extends GetxController {
       print("로그인 성공!!!!");
       isLogin.value = true;
       User user = loginResDto.user;
-      changeUser(id: user.id, name: user.username, email: user.email!);
+      _setUser(id: user.id, name: user.username, email: user.email!);
 
       setJwtToken(loginResDto.token);
     }
@@ -98,5 +98,9 @@ class UserController extends GetxController {
     LoginResDto loginResDto = await _userRepository.join(user);
 
     //User(username, email, password, recommendCode, isRecomendCode);
+  }
+
+  Future<bool> changePassword(String currentPassword, String password) async {
+    return await _userRepository.changePassword(currentPassword, password);
   }
 }
