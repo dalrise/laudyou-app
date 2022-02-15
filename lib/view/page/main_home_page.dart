@@ -5,6 +5,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get.dart';
 import 'package:laudyou_app/controller/post_controller.dart';
 import 'package:laudyou_app/controller/user_controller.dart';
+import 'package:laudyou_app/view/page/help/help_main_page.dart';
 import 'package:laudyou_app/view/page/home/home_screen.dart';
 import 'package:laudyou_app/view/page/mylaudyou/components/my_laud_you_header.dart';
 import 'package:laudyou_app/view/page/mylaudyou/my_laud_you_page.dart';
@@ -53,11 +54,8 @@ class _MainHomePageState extends State<MainHomePage> {
             child: const MyLaudYouPage(),
           ),
           Container(
-            color: Colors.orange[200],
-            child: QuestionHomePage(
-              expression: '2+2=4',
-              operation: 'plus',
-            ),
+            color: Colors.orange[300],
+            child: HelpMainPage(),
           ),
         ],
       ),
