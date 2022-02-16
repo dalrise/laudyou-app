@@ -3,6 +3,7 @@ import 'package:laudyou_app/domain/question/question.dart';
 import 'package:laudyou_app/models/mode_question.dart';
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
+import 'package:laudyou_app/models/question_cate.dart';
 import 'package:laudyou_app/view/page/question/question_home_page.dart';
 
 class QuestionController extends GetxController {
