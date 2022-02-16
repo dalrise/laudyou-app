@@ -34,8 +34,10 @@ class UserRepository {
      */
   }
 
-  me() async {
+  Future<LoginResDto> me() async {
     final response = await _userProvider.me();
+    final loginResDto = LoginResDto.fromJson(response.body);
+    return loginResDto;
   }
 
   Future<LoginResDto> join(User user) async {

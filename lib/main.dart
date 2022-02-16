@@ -20,10 +20,10 @@ void main() {
       "counter": 5,
     },
   );
-
-  runApp(const MyApp());
   configLoading();
   checkLoginToken();
+
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const SplashPage(),
+      home: SplashPage(),
       theme: theme(),
       routes: route,
       builder: EasyLoading.init(),

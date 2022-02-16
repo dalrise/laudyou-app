@@ -2,22 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:laudyou_app/constants.dart';
+import 'package:laudyou_app/controller/user_controller.dart';
 import 'package:laudyou_app/utils/auth_util.dart';
 import 'package:laudyou_app/view/page/main_home_page.dart';
 import 'package:laudyou_app/view/page/user/first_page.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  SplashPage({Key? key}) : super(key: key);
+
+  UserController controller = Get.put(UserController());
 
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () async {
+      /*
       final firstInstall = await getFirstInstall();
+      print('firstInstall:${firstInstall}');
       if (firstInstall) {
         Get.off(() => FirstPage());
       } else {
         Get.off(() => const MainHomePage(title: "Laud You"));
+      }
+       */
+
+      print('controller.isLogin.value:${controller.isLogin.value}');
+      if (controller.isLogin.value) {
+        Get.off(() => const MainHomePage(title: "Laud You"));
+      } else {
+        Get.off(() => FirstPage());
       }
     });
 
