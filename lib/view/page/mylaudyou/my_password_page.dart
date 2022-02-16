@@ -43,7 +43,7 @@ class _MyPasswordPageState extends State<MyPasswordPage> {
   Form _buildForm() {
     return Form(
       key: _formKey,
-      child: Column(
+      child: ListView(
         children: [
           CustomTextFormField(
               initialValue: controller.loginInfo.value.email,
@@ -69,7 +69,7 @@ class _MyPasswordPageState extends State<MyPasswordPage> {
             validator: validatePassword(),
             controller: _passwordConfirm,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           DefaultButton(
             text: "저장하기",
             press: () async {

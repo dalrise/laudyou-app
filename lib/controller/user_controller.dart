@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:laudyou_app/domain/common/res_result.dart';
 import 'package:laudyou_app/domain/user/user.dart';
 import 'package:laudyou_app/domain/user/user_repository.dart';
 import 'package:laudyou_app/models/login_info.dart';
@@ -100,7 +101,8 @@ class UserController extends GetxController {
     //User(username, email, password, recommendCode, isRecomendCode);
   }
 
-  Future<bool> changePassword(String currentPassword, String password) async {
+  Future<ResResult?> changePassword(
+      String currentPassword, String password) async {
     return await _userRepository.changePassword(currentPassword, password);
   }
 }

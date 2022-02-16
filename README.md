@@ -1,8 +1,18 @@
 # laudyou_app
 
+### 개발, 운영 build config 설정
+상단의 main.dart 부분을 선택 Edit Configuration 을 하여
+ - main.dart 에   Addtional arguments 에는 --flavor production 을 입력
+ - main-dev.dart 에 Addtional arguments 에는 --flavor development 을 입력
+
+=> 로컬에서 개발 시 main-dev 로 선택 후 작업을 합니다.
+   
 
 ### 개발 사항 
- - TextEditingController 사용 시 Stateful wiget 을 사용해야 한다.
+ - TextEditingController 사용 시 Stateful wiget 을 사용해야 한다. ?? 조금 더 확인 필요
+
+
+
 
 
 ## validator

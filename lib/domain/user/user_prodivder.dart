@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:laudyou_app/domain/common/res_result.dart';
 import 'package:laudyou_app/domain/user/user.dart';
 
 import '../base/custom_get_connect.dart';
@@ -37,14 +38,14 @@ class UserProvider extends CustomGetConnect {
   Future<Response> join(Map<String, dynamic> json) =>
       fetchPost("/user/join", json);
 
-  logout() async {
-    final result = await fetchPost<bool>("/user/logout", {});
+  Future<Response> logout() async {
+    final result = await fetchPost("/user/logout", {});
     return result;
     //return Future.delayed(loginTime).then((_) {});
   }
 
-  Future<Response<bool>> changePassword(Map<String, String> data) async {
-    final result = fetchPost<bool>("/user/changePassword", data);
+  Future<Response> changePassword(Map<String, String> data) async {
+    final result = fetchPost("/user/changePassword", data);
     return result;
   }
 }
