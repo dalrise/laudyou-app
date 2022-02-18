@@ -12,14 +12,15 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   FlavorConfig(
-    name: "PRODUCTION",
+    name: "DEVELOP",
     color: Colors.red,
     location: BannerLocation.bottomStart,
-    baseUrl: "https://laudyou-admin.vercel.app/api",
+    baseUrl: "http://10.0.2.2:3000/api",
     variables: {
       "counter": 5,
     },
   );
+
   configLoading();
   checkLoginToken();
 

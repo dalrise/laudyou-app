@@ -8,12 +8,16 @@ class CustomTextFormField extends StatelessWidget {
   final String? initialValue;
   final TextEditingController? controller;
   final Icon? suffixIcon;
+  final bool obscureText;
+  final bool readOnly;
 
   const CustomTextFormField(
       {Key? key,
       required this.hint,
       required this.validator,
       this.circular = 20,
+      this.obscureText = false,
+      this.readOnly = false,
       this.suffixIcon,
       this.initialValue,
       this.controller})
@@ -27,7 +31,8 @@ class CustomTextFormField extends StatelessWidget {
         controller: controller,
         initialValue: initialValue,
         validator: validator,
-        obscureText: hint == "Password" ? true : false,
+        obscureText: obscureText,
+        readOnly: readOnly,
         decoration: InputDecoration(
           hintText: hint,
 

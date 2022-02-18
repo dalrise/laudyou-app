@@ -1,6 +1,7 @@
 import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:laudyou_app/controller/dto/user/login_req_dto.dart';
 import 'package:laudyou_app/controller/dto/user/login_res_dto.dart';
+import 'package:laudyou_app/domain/common/res_result.dart';
 import 'package:laudyou_app/domain/user/user_prodivder.dart';
 
 import 'user.dart';
@@ -16,7 +17,8 @@ class UserRepository {
       return Future.error(response.statusText ?? "error");
     }
 
-    LoginResDto loginResDto = LoginResDto.fromJson(response.body);
+    ResResult resResult = ResResult.fromJson(response.body);
+    final loginResDto = LoginResDto.fromJson(resResult.data);
     return loginResDto;
 
     /*
@@ -32,8 +34,10 @@ class UserRepository {
      */
   }
 
-  me() async {
+  Future<LoginResDto> me() async {
     final response = await _userProvider.me();
+    final loginResDto = LoginResDto.fromJson(response.body);
+    return loginResDto;
   }
 
   Future<LoginResDto> join(User user) async {
@@ -46,5 +50,20 @@ class UserRepository {
 
     LoginResDto loginResDto = LoginResDto.fromJson(response.body);
     return loginResDto;
+  }
+
+  Future<ResResult?> logout() async {
+    final response = await _userProvider.logout();
+    final ResResult result = ResResult.fromJson(response.body);
+    return result;
+  }
+
+  Future<ResResult> changePassword(
+      String currentPassword, String password) async {
+    final data = {'currentPassword': currentPassword, 'password': password};
+    final response = await _userProvider.changePassword(data);
+    final ResResult result = ResResult.fromJson(response.body);
+
+    return result;
   }
 }

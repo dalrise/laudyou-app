@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:laudyou_app/constants.dart';
 import 'package:laudyou_app/controller/user_controller.dart';
 import 'package:laudyou_app/theme.dart';
+import 'package:laudyou_app/utils/auth_util.dart';
 import 'package:laudyou_app/view/components/custom_elevated_button.dart';
 import 'package:laudyou_app/view/components/default_button.dart';
 import 'package:laudyou_app/view/page/user/join_page.dart';
@@ -17,6 +18,9 @@ class FirstPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 처음 install false 처리
+    setFirstInstall(false);
+
     return Scaffold(
       appBar: AppBar(
           //title: Text("휴대폰 관리 공부앱"),

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:laudyou_app/domain/common/res_result.dart';
 import 'package:laudyou_app/domain/user/user.dart';
 
 import '../base/custom_get_connect.dart';
@@ -10,14 +11,14 @@ class UserProvider extends CustomGetConnect {
   Duration get loginTime => const Duration(milliseconds: 2250);
 
   // 로그인
-  Future<Response> login2(Map data) async {
+  Future<Response> login(Map data) async {
     final response = await fetchPost("/user/login", data);
     return response;
   }
 
-  Future<Response> login(Map data) {
+  Future<Response> login2(Map data) {
     return Future.delayed(loginTime).then((_) {
-      User user = User(id: 1, username: "jo");
+      User user = User(id: 1, username: "admin", email: "dev@dalrise.co.kr");
       //User(1, "jo", "1111", "email", DateTime.now(), DateTime.now());
       String token =
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.HkV3Z-V310H-DAff_VtEMM4fsNzdagusKE-YWFXX3PY";
@@ -36,4 +37,15 @@ class UserProvider extends CustomGetConnect {
 
   Future<Response> join(Map<String, dynamic> json) =>
       fetchPost("/user/join", json);
+
+  Future<Response> logout() async {
+    final result = await fetchPost("/user/logout", {});
+    return result;
+    //return Future.delayed(loginTime).then((_) {});
+  }
+
+  Future<Response> changePassword(Map<String, String> data) async {
+    final result = fetchPost("/user/changePassword", data);
+    return result;
+  }
 }
