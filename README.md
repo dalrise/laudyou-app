@@ -17,6 +17,8 @@
  - modal 창 팝업
 https://pub.dev/packages/modal_bottom_sheet/example
 
+- alert 창
+https://pub.dev/packages/adaptive_dialog
 
 ## validator
 https://pub.dev/documentation/validators/latest/validators/validators-library.html

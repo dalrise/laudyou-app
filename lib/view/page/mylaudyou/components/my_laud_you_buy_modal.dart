@@ -77,8 +77,9 @@ class MyLaudYouBuyModal extends StatelessWidget {
             ],
           ),
           Divider(
-            height: 4,
+            height: 10,
             color: Colors.black,
+            thickness: 1.5,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
