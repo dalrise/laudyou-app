@@ -55,3 +55,9 @@ FormFieldValidator<String> validateContent(int maxLength) {
     return null;
   };
 }
+
+FormFieldValidator<String> validateLauduCash() {
+  return (String? value) {
+    return null;
+  };
+}

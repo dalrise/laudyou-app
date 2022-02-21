@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -35,6 +36,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SplashPage(),
       theme: theme(),
+      darkTheme: ThemeData(
+        cupertinoOverrideTheme: const CupertinoThemeData(
+          textTheme: CupertinoTextThemeData(), // This is required
+        ),
+      ),
       routes: route,
       builder: EasyLoading.init(),
     );
