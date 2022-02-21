@@ -15,7 +15,7 @@ class _MySchedulePageState extends State<MySchedulePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("스케줄 관리"),
+        title: Text("일정 관리"),
       ),
     );
   }
