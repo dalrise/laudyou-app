@@ -5,6 +5,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get.dart';
 import 'package:laudyou_app/controller/post_controller.dart';
 import 'package:laudyou_app/controller/user_controller.dart';
+import 'package:laudyou_app/services/notification_service.dart';
 import 'package:laudyou_app/view/page/help/help_main_page.dart';
 import 'package:laudyou_app/view/page/home/home_screen.dart';
 import 'package:laudyou_app/view/page/mylaudyou/components/my_laud_you_header.dart';
@@ -27,6 +28,16 @@ class MainHomePage extends StatefulWidget {
 
 class _MainHomePageState extends State<MainHomePage> {
   int _selectedIndex = 0;
+
+  var notifyHelper;
+
+  @override
+  void initState() {
+    super.initState();
+    notifyHelper = NotifyHelper();
+    notifyHelper.initializeNotification();
+    notifyHelper.requestIOSPermissions();
+  }
 
   @override
   Widget build(BuildContext context) {

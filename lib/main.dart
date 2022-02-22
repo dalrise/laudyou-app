@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:laudyou_app/routes.dart';
 import 'package:laudyou_app/theme.dart';
 import 'package:laudyou_app/view/page/splash/splash_page.dart';
@@ -9,7 +10,7 @@ import 'package:laudyou_app/view/page/splash/splash_page.dart';
 import 'config.dart';
 import 'environment.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   FlavorConfig(
@@ -21,6 +22,7 @@ void main() {
       "counter": 5,
     },
   );
+  await GetStorage.init();
   configLoading();
   checkLoginToken();
 

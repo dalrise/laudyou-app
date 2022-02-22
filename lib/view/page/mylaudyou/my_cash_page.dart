@@ -17,7 +17,7 @@ class MyCashPage extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: false,
+          //automaticallyImplyLeading: false,
           title: Text("캐시 관리"),
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(42),
@@ -47,7 +47,11 @@ class MyCashPage extends StatelessWidget {
           children: [
             _buildCashMng(),
             Container(
-              child: Text("공유하기"),
+              child: Column(
+                children: [
+                  Text("내 리워드 코드"),
+                ],
+              ),
             ),
           ],
         ),

@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'constants.dart';
+
+class Themes {
+  static final light = ThemeData(
+    primaryColor: kPrimaryColor,
+    brightness: Brightness.light,
+    scaffoldBackgroundColor: Colors.white,
+    textTheme: textTheme(),
+    appBarTheme: appTheme(),
+    textSelectionTheme:
+        const TextSelectionThemeData(cursorColor: kPrimaryColor),
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+  );
+
+  static final dark =
+      ThemeData(primaryColor: Colors.yellow, brightness: Brightness.light);
+}
 
 TextTheme textTheme() {
   return TextTheme(

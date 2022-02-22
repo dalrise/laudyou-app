@@ -24,33 +24,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: const [
-            Text('수학'),
-            SizedBox(width: 4.0),
-            Icon(
-              CupertinoIcons.chevron_down,
-              size: 15,
-            )
-          ],
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Get.to(() => SearchItem(), transition: Transition.rightToLeft);
-              },
-              icon: const Icon(CupertinoIcons.search)),
-          IconButton(
-              onPressed: () {
-                Get.to(() => const CategoryItem(),
-                    transition: Transition.rightToLeft);
-              },
-              icon: const Icon(CupertinoIcons.list_dash)),
-          IconButton(onPressed: () {}, icon: const Icon(CupertinoIcons.bell)),
-        ],
-        bottom: const AppbarBottomPreferredSize(),
-      ),
+      appBar: _appBar(),
       body: Container(
         child: Center(
           child: Text("DASH BOARD"),
@@ -58,37 +32,34 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-  /*
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('메인 화면'),
-      ),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 20,
-          ),
-          InkWell(
-            child: Container(
-              width: double.maxFinite,
-              height: 80,
-              color: Colors.red,
-              alignment: Alignment.center,
-              child: Text(
-                'DashBoard',
-                style: const TextStyle(fontSize: 28, color: Colors.white),
-              ),
-            ),
-          ),
-          ElevatedButton(
-            onPressed: save_firstinstall,
-            child: Text('로그인'),
-          ),
+
+  _appBar() {
+    return AppBar(
+      title: Row(
+        children: const [
+          Text('수학'),
+          SizedBox(width: 4.0),
+          Icon(
+            CupertinoIcons.chevron_down,
+            size: 15,
+          )
         ],
       ),
+      actions: [
+        IconButton(
+            onPressed: () {
+              Get.to(() => SearchItem(), transition: Transition.rightToLeft);
+            },
+            icon: const Icon(CupertinoIcons.search)),
+        IconButton(
+            onPressed: () {
+              Get.to(() => const CategoryItem(),
+                  transition: Transition.rightToLeft);
+            },
+            icon: const Icon(CupertinoIcons.list_dash)),
+        IconButton(onPressed: () {}, icon: const Icon(CupertinoIcons.bell)),
+      ],
+      bottom: const AppbarBottomPreferredSize(),
     );
   }
-   */
 }
