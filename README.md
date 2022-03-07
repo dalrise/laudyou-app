@@ -50,3 +50,12 @@ https://pub.dev/packages/flutter_native_splash 작업
 
 
 https://www.figma.com/community/plugin/844008530039534144/FigmaToFlutter
+
+
+## firebase 연결
+ - firebase tool 설치 : npm install -g firebase-tools
+
+ - dart flutterfire 설치
+  dart pub global activate flutterfire_cli
+  
+  export PATH="$PATH":"$HOME/.pub-cache/bin"

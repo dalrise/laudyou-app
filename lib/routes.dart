@@ -14,7 +14,7 @@ import 'package:laudyou_app/view/page/user/join_page.dart';
 import 'package:laudyou_app/view/page/user/login_page.dart';
 
 final Map<String, WidgetBuilder> route = {
-  MainHomePage.routeName: (context) => const MainHomePage(title: 'Laud You'),
+  MainHomePage.routeName: (context) => MainHomePage(title: 'Laud You'),
   JoinPage.routeName: (context) => JoinPage(),
   LoginPage.routeName: (context) => LoginPage(),
   // mypage
