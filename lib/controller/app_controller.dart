@@ -2,11 +2,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
+import 'package:laudyou_app/domain/app/app_repository.dart';
 
 import '../config.dart';
 
 class AppController extends GetxController {
   static AppController get to => Get.find();
+  AppRepository _appRepository = AppRepository();
 
   final Rxn<RemoteMessage> message = Rxn<RemoteMessage>();
 
@@ -33,7 +35,8 @@ class AppController extends GetxController {
     }
 
     String? token = await FirebaseMessaging.instance.getToken();
-    print("token=${token}");
+    //print("token=${token}");
+    _appRepository.addToken(token);
 
     // iOS foreground에서 heads up display 표시를 위해 alert, sound true로 설정
     await FirebaseMessaging.instance
