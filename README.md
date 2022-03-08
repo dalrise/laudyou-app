@@ -25,7 +25,7 @@ https://pub.dev/documentation/validators/latest/validators/validators-library.ht
 
 ## 아이콘 경로 
 https://api.flutter.dev/flutter/material/Icons-class.html
-
+https://fontawesome.com/v5/search
 
 ## model json 파일 generate
 flutter pub add json_annotation

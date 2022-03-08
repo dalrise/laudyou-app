@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get.dart';
+import 'package:laudyou_app/constants.dart';
 import 'package:laudyou_app/controller/post_controller.dart';
 import 'package:laudyou_app/controller/user_controller.dart';
 import 'package:laudyou_app/services/notification_service.dart';
+import 'package:laudyou_app/view/components/default_button.dart';
 import 'package:laudyou_app/view/page/help/help_main_page.dart';
+import 'package:laudyou_app/view/page/home/home_dashbord_page.dart';
 import 'package:laudyou_app/view/page/home/home_screen.dart';
 import 'package:laudyou_app/view/page/mylaudyou/components/my_laud_you_header.dart';
 import 'package:laudyou_app/view/page/mylaudyou/my_laud_you_page.dart';
@@ -51,7 +55,7 @@ class _MainHomePageState extends State<MainHomePage> {
         children: [
           Container(
             color: Colors.orange[100],
-            child: HomeScreen(),
+            child: HomeDashboardPage(),
           ),
           Container(
             color: Colors.orange[200],
@@ -70,25 +74,104 @@ class _MainHomePageState extends State<MainHomePage> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _selectedIndex,
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: "홈"),
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.question), label: "문제"),
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.person), label: "내정보"),
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.question_circle), label: "고객센타"),
+      bottomNavigationBar: _buildBottomNavigationBar2(),
+    );
+  }
+
+  Widget _bottomButton(
+      {required IconData icon,
+      required Color color,
+      final GestureTapCallback? press}) {
+    return GestureDetector(
+      onTap: press,
+      child: SizedBox(
+        width: 66,
+        child: Icon(icon, color: color, size: 30),
+      ),
+    );
+  }
+
+  Widget _buildBottomNavigationBar2() {
+    return Container(
+      height: 56,
+      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+      child: Row(
+        children: [
+          _bottomButton(
+              icon: FontAwesomeIcons.chartBar,
+              color: _selectedIndex == 0 ? kButtonColor : kPrimaryColor,
+              press: () {
+                setState(() {
+                  _selectedIndex = 0;
+                });
+              }),
+          _bottomButton(
+              icon: FontAwesomeIcons.shoppingCart,
+              color: _selectedIndex == 1 ? kButtonColor : kPrimaryColor,
+              press: () {
+                setState(() {
+                  _selectedIndex = 1;
+                });
+              }),
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.all(5),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.red[600],
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+              ),
+              child: Text("스스로\n관리중",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: Colors.white)),
+            ),
+          ),
+          _bottomButton(
+              icon: FontAwesomeIcons.user,
+              color: _selectedIndex == 2 ? kButtonColor : kPrimaryColor,
+              press: () {
+                setState(() {
+                  _selectedIndex = 2;
+                });
+              }),
+          _bottomButton(
+              icon: FontAwesomeIcons.question,
+              color: _selectedIndex == 3 ? kButtonColor : kPrimaryColor,
+              press: () {
+                setState(() {
+                  _selectedIndex = 3;
+                });
+              }),
         ],
       ),
+    );
+  }
+
+  BottomNavigationBar _buildBottomNavigationBar() {
+    return BottomNavigationBar(
+      backgroundColor: Colors.white,
+      type: BottomNavigationBarType.fixed,
+      currentIndex: _selectedIndex,
+      onTap: (index) {
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
+      items: [
+        BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: "홈"),
+        BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.question), label: "문제"),
+        BottomNavigationBarItem(
+            label: "",
+            icon: Icon(CupertinoIcons.question),
+            backgroundColor: kPrimaryColor),
+        BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.person), label: "내정보"),
+        BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.question_circle), label: "고객센타"),
+      ],
     );
   }
 }

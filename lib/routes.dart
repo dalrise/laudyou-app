@@ -10,6 +10,7 @@ import 'package:laudyou_app/view/page/mylaudyou/my_password_page.dart';
 import 'package:laudyou_app/view/page/mylaudyou/my_reward_page.dart';
 import 'package:laudyou_app/view/page/mylaudyou/my_schedule_page.dart';
 import 'package:laudyou_app/view/page/mylaudyou/my_setting_page.dart';
+import 'package:laudyou_app/view/page/study/study_home_page.dart';
 import 'package:laudyou_app/view/page/user/join_page.dart';
 import 'package:laudyou_app/view/page/user/login_page.dart';
 
@@ -29,4 +30,7 @@ final Map<String, WidgetBuilder> route = {
   MyCashPage.routeName: (context) => const MyCashPage(),
   MyRewardPage.routeName: (context) => MyRewardPage(),
   MyLeavePage.routeName: (context) => MyLeavePage(),
+
+  // 학습하기
+  StudyHomePage.routeName: (context) => StudyHomePage(),
 };

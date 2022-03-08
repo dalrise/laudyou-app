@@ -17,6 +17,13 @@ enum UserType {
 }
 
 class UserController extends GetxController {
+  static UserController get to => Get.find();
+
+  // // 여기서 앱 실행 전에 해야 하는 초기화 진행을 위한 호출을 FutureBuilder 에서 호출한다.
+  Future<bool> initialize() async {
+    return true;
+  }
+
   final UserRepository _userRepository = UserRepository();
   final RxBool isLogin = false.obs;
   final Rx<UserType> userType = Rx<UserType>(UserType.self);
@@ -65,7 +72,6 @@ class UserController extends GetxController {
 
   Future<LoginResDto?> login(String username, String password) async {
     LoginResDto? loginResDto = await _userRepository.login(username, password);
-
     if (loginResDto != null) {
       print("로그인 성공!!!!");
       isLogin.value = true;

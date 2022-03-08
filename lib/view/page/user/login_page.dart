@@ -33,6 +33,9 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    _username.text = "jo";
+    _password.text = "1111";
+
     return Scaffold(
       appBar: AppBar(
         title: Text("로그인"),
@@ -69,11 +72,13 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           CustomTextFormField(
             hint: "UserName",
+            //initialValue: "jo",
             validator: validateUsername(),
             controller: _username,
           ),
           CustomTextFormField(
             hint: "Password",
+            //initialValue: "1111",
             validator: validatePassword(),
             controller: _password,
           ),
