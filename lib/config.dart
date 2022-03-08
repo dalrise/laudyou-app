@@ -1,7 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:laudyou_app/controller/user_controller.dart';
+import 'package:laudyou_app/firebase_options.dart';
 import 'package:laudyou_app/utils/auth_util.dart';
 import 'package:laudyou_app/utils/custom_animation.dart';
 
@@ -11,6 +13,12 @@ void checkLoginToken() async {
 
   UserController controller = Get.put(UserController());
   controller.me();
+}
+
+void configFirebase() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 void configLoading() {

@@ -8,6 +8,7 @@ import 'package:laudyou_app/theme.dart';
 import 'package:laudyou_app/view/page/splash/splash_page.dart';
 
 import 'config.dart';
+import 'controller/app_controller.dart';
 import 'environment.dart';
 
 void main() async {
@@ -23,14 +24,16 @@ void main() async {
     },
   );
   await GetStorage.init();
+  configFirebase();
   configLoading();
   checkLoginToken();
 
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+  //final AppController c = Get.put(AppController());
 
   @override
   Widget build(BuildContext context) {

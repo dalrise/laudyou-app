@@ -28,7 +28,7 @@ class SplashPage extends StatelessWidget {
 
       print('controller.isLogin.value:${controller.isLogin.value}');
       if (controller.isLogin.value) {
-        Get.off(() => const MainHomePage(title: "Laud You"));
+        Get.offNamed(MainHomePage.routeName);
       } else {
         Get.off(() => FirstPage());
       }
@@ -71,7 +71,7 @@ class SplashPage extends StatelessWidget {
             child: TextButton(
               child: const Text("Continue"),
               onPressed: () {
-                Get.off(() => const MainHomePage(title: "Laud You"));
+                Get.offNamed(MainHomePage.routeName);
               },
             ),
           ),

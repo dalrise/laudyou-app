@@ -101,9 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                     if (loginResDto == null) {
                       Get.snackbar("로그인 시도", "로그인 실패");
                     } else {
-                      Get.offAll(() => const MainHomePage(
-                            title: 'Laud You',
-                          ));
+                      Get.offNamed(MainHomePage.routeName);
                     }
                   } catch (e) {
                     print(e);

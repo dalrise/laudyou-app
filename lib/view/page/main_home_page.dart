@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get.dart';
-import 'package:laudyou_app/constants.dart';
+import 'package:laudyou_app/controller/app_controller.dart';
 import 'package:laudyou_app/controller/post_controller.dart';
 import 'package:laudyou_app/controller/user_controller.dart';
 import 'package:laudyou_app/services/notification_service.dart';
@@ -21,8 +21,8 @@ import 'package:laudyou_app/view/widget/navigation.dart';
 
 class MainHomePage extends StatefulWidget {
   static String routeName = "main-home";
-
-  const MainHomePage({Key? key, required this.title}) : super(key: key);
+  //final AppController controller = Get.put(AppController());
+  MainHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -41,6 +41,8 @@ class _MainHomePageState extends State<MainHomePage> {
     notifyHelper = NotifyHelper();
     notifyHelper.initializeNotification();
     notifyHelper.requestIOSPermissions();
+
+    //widget.controller.initialize();
   }
 
   @override
@@ -55,7 +57,7 @@ class _MainHomePageState extends State<MainHomePage> {
         children: [
           Container(
             color: Colors.orange[100],
-            child: HomeDashboardPage(),
+            child: HomeScreen(),
           ),
           Container(
             color: Colors.orange[200],
