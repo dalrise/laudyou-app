@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
    <application
-        android:label="laudyou_app"
+        android:label="라우드유"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
        <meta-data

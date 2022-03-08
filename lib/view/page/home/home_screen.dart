@@ -7,6 +7,7 @@ import 'package:laudyou_app/controller/user_controller.dart';
 import 'package:laudyou_app/view/page/home/components/category_item.dart';
 import 'package:laudyou_app/view/page/home/components/search_item.dart';
 import 'package:laudyou_app/view/widget/appbar_bottom_preferredsize.dart';
+import 'package:laudyou_app_ocr/laudyou_app_ocr.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../utils/auth_util.dart';
@@ -41,6 +42,9 @@ class HomeScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 20)),
                 Text(c.message.value?.notification?.body ?? 'message',
                     style: TextStyle(fontSize: 15)),
+                DrawOcrWidget(onPredict: (int value) {
+                  print("DrawOcrWidget:" + value.toString());
+                }),
               ],
             ));
           } else if (snapshot.hasError) {
